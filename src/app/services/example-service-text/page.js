@@ -1,3 +1,14 @@
+/**
+ * Example Service Detail Page - Text-Heavy Template
+ *
+ * INSTRUCTIONS:
+ * - This template is ideal for services that need detailed text descriptions
+ * - Copy this folder and rename from 'example-service-text' to your service name (e.g., 'photography', 'consulting')
+ * - Replace all placeholder content with your actual service information
+ * - Add or remove sections as needed for your service
+ * - Update images and styling to match your brand
+ */
+
 'use client';
 
 import Box from '@mui/material/Box';
@@ -50,7 +61,7 @@ const BodyText = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(2.5),
 }));
 
-export default function ExpeditionsPage() {
+export default function ServiceDetailPage() {
   return (
     <main>
       <PageContainer>
@@ -67,7 +78,7 @@ export default function ExpeditionsPage() {
                 marginBottom: 2,
               }}
             >
-              EXPEDITIONS
+              YOUR SERVICE NAME
             </Typography>
             <Typography
               variant="h5"
@@ -79,7 +90,7 @@ export default function ExpeditionsPage() {
                 margin: '0 auto',
               }}
             >
-              Experience the adventure of a lifetime with Tribe Banua
+              A compelling subtitle that describes your service offering
             </Typography>
           </Container>
         </PageHeader>
@@ -88,22 +99,24 @@ export default function ExpeditionsPage() {
         <ContentSection>
           <Container maxWidth="md">
             <SectionTitle variant="h2">
-              What is the Tribe Banua Expedition?
+              What is this service about?
             </SectionTitle>
             <BodyText>
-              Embark on a 3-day boat expedition from Linapacan to Culion, Palawan, and be immersed in an array of unforgettable experiences. Snorkel amidst vibrant coral reefs, encountering a kaleidoscope of marine life. Visit remote tribe villages, engaging with locals, witnessing traditional dances, and learning about their customs. Navigate through mangrove forests on kayaks and explore tranquil waterways. Spend nights in native houses, embracing the authentic charm of Palawan's culture. This expedition promises an extraordinary blend of adventure, cultural immersion, and natural beauty, making it an experience of a lifetime.
+              Write a detailed description of your service here. Explain what makes it unique, the value it provides, and what clients can expect. This is your opportunity to showcase your expertise and build trust with potential customers. Replace this text with your actual service description.
             </BodyText>
 
             <Divider sx={{ my: 4, borderColor: 'divider' }} />
 
             <SectionTitle variant="h2">
-              What to expect from this grand tour?
+              Key Features
             </SectionTitle>
             <BodyText>
-              This expedition is packed with adventure and fun experiences! For your reference, see the itinerary below.
+              Describe the main features or highlights of your service. What will clients experience? What makes your offering special?
             </BodyText>
+
+            {/* Optional: Add an image showcase */}
             <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
-              <Link target="_blank" href="/expedition-activities.png">
+              <Link target="_blank" href="/your-image.png">
                 <Box sx={{
                   maxWidth: '360px',
                   border: '1px solid',
@@ -114,8 +127,8 @@ export default function ExpeditionsPage() {
                   <Image
                     height={900}
                     width={360}
-                    src="/expedition-activities.png"
-                    alt="expedition activities"
+                    src="/your-image.png"
+                    alt="service details"
                     style={{ width: '100%', height: 'auto' }}
                   />
                 </Box>
@@ -123,66 +136,54 @@ export default function ExpeditionsPage() {
             </Box>
 
             <SectionTitle variant="h2">
-              INCLUSIONS AND REMINDERS
+              What's Included
             </SectionTitle>
             <BodyText>
-              Hotel pick-up's between 8:00-8:30 am. Pro tip: grab breakfast at your hotel since we're only dishing out lunch and dinner on day one. We promise our food's better, though!
+              List everything that's included in your service package. Be specific and clear about what clients will receive.
             </BodyText>
             <BodyText>
-              Days two and three? We've got you covered from sunrise to sunset with breakfast, lunch, and dinner. No hungry tummies allowed!
+              • Feature or benefit 1
             </BodyText>
             <BodyText>
-              When the sun dips below the horizon, it's time for the real party! Enjoy bottomless Rum and Coke under the stars, with a bit of Red Horse Beer to keep things interesting.
+              • Feature or benefit 2
             </BodyText>
             <BodyText>
-              Bringing your own drinks? Absolutely! Just stash your stash in the boat's cooler and sip at your leisure.
-            </BodyText>
-            <BodyText>
-              As for where you'll rest your weary head, it's all about the Native House vibes. Think cozy, think comfy, think... no room service! But hey, it's all part of the adventure, right? 🌟
+              • Feature or benefit 3
             </BodyText>
 
             <SectionTitle variant="h2">
-              What to bring?
+              What You'll Need
             </SectionTitle>
             <BodyText>
-              <strong>Prescribed Medications:</strong> Don't forget to inform the crew of any medical conditions and bring enough medication. Better safe than sorry, right?
+              <strong>Item 1:</strong> Describe what clients should bring or prepare for this service.
             </BodyText>
             <BodyText>
-              <strong>Towels:</strong> Pack your own towels for bathing and washing up at the campsites. Plus, we'll throw in an extra one for good measure.
+              <strong>Item 2:</strong> Include any requirements or recommendations.
             </BodyText>
             <BodyText>
-              <strong>Sunscreen and Solar Protection:</strong> Palawan's sunny disposition is delightful, but don't forget your sunscreen, hat, and sunglasses to keep those rays at bay.
-            </BodyText>
-            <BodyText>
-              <strong>Mosquito Repellent:</strong> Stay bug-free with some repellent, especially during dusk and dawn. Those mosquitoes can be pesky!
-            </BodyText>
-            <BodyText>
-              <strong>A Dry Bag:</strong> Keep your gear dry with a waterproof bag, especially handy when traveling by kayak. Think of it as your trusty sidekick for the journey.
-            </BodyText>
-            <BodyText>
-              <strong>Water Shoes:</strong> While snorkeling gear is provided, water shoes add an extra layer of comfort for those beach walks. Trust us, your feet will thank you.
+              <strong>Item 3:</strong> Add more items as needed for your specific service.
             </BodyText>
 
             <SectionTitle variant="h2">
-              What to prepare?
+              Preparation Tips
             </SectionTitle>
             <BodyText>
-              <strong>Organize Your Luggage:</strong> Travel light by bringing essentials in a backpack or dry bag. Leave the rest in your luggage, safely stowed away on the boat.
+              <strong>Tip 1:</strong> Provide helpful advice on how clients can prepare for your service.
             </BodyText>
             <BodyText>
-              <strong>Protect Your Gadgets and Documents:</strong> Even though the odds of a soggy mishap are low, it never hurts to be cautious. Keep your gadgets and documents in a waterproof bag, just in case.
+              <strong>Tip 2:</strong> Share insights that will enhance their experience.
             </BodyText>
             <BodyText>
-              With these essentials in tow, you're all set for an unforgettable expedition!
+              Add any additional preparation information here to help clients get the most out of your service.
             </BodyText>
 
             <Divider sx={{ my: 4, borderColor: 'divider' }} />
 
             <SectionTitle variant="h2" sx={{ textAlign: 'center' }}>
-              Are you ready for the tour of a lifetime?
+              Ready to get started?
             </SectionTitle>
             <BodyText sx={{ textAlign: 'center' }}>
-              If you are, send us a message or connect with us through our social accounts below.
+              Contact us to learn more or to book this service. We're here to help!
             </BodyText>
           </Container>
         </ContentSection>
@@ -201,6 +202,7 @@ export default function ExpeditionsPage() {
             >
               SEE MORE OF OUR SERVICES
             </Typography>
+            {/* hiddenItem prop: Set to the index of this service to hide it from the list (e.g., 0, 1, 2, etc.) */}
             <ServicesSection config={servicesConfig} hiddenItem={0} />
           </Container>
         </Box>

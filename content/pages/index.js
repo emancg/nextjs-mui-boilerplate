@@ -3,7 +3,7 @@
  */
 
 export { homePageConfig } from './home.config';
-export { expeditionsPageConfig } from './expeditions.config';
+export { expeditionsPageConfig } from './services.config';
 // Add other page configs as they are created
 // export { islandToursPageConfig } from './island-tours.config';
 // export { ferryPageConfig } from './ferry.config';

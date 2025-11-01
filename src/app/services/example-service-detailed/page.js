@@ -1,3 +1,15 @@
+/**
+ * Example Service Detail Page - Extended Info Cards Template (5 Cards)
+ *
+ * INSTRUCTIONS:
+ * - This template shows a service page with multiple feature cards (2+3 layout)
+ * - Ideal for services with detailed specifications, pricing tiers, or schedules
+ * - Copy this folder and rename from 'example-service-detailed' to your service name
+ * - Replace placeholder content with your actual service information
+ * - Customize icons from @mui/icons-material (see https://mui.com/material-ui/material-icons/)
+ * - Adjust grid layout by changing md values (xs={12} md={6} = 2 columns, md={4} = 3 columns)
+ */
+
 'use client';
 
 import Box from '@mui/material/Box';
@@ -6,9 +18,10 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
+import DirectionsBoatIcon from '@mui/icons-material/DirectionsBoat';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PaymentsIcon from '@mui/icons-material/Payments';
 import { FooterSection, ServicesSection } from '@/lib/components';
 import { footerConfig } from '../../../../content/sections/footer.config';
 import { servicesConfig } from '../../../../content/sections/services.config';
@@ -64,7 +77,7 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function VanTransferPage() {
+export default function ServiceDetailPage() {
   return (
     <main>
       <PageContainer>
@@ -81,7 +94,7 @@ export default function VanTransferPage() {
                 marginBottom: 2,
               }}
             >
-              VAN TRANSFER
+              YOUR SERVICE NAME
             </Typography>
             <Typography
               variant="h5"
@@ -93,7 +106,7 @@ export default function VanTransferPage() {
                 margin: '0 auto',
               }}
             >
-              Seamless travel between Puerto Princesa and El Nido
+              Engaging subtitle that captures the essence of your service
             </Typography>
           </Container>
         </PageHeader>
@@ -101,11 +114,13 @@ export default function VanTransferPage() {
         {/* Main Content */}
         <ContentSection>
           <Container maxWidth="lg">
+            {/* Feature Cards Grid - 2 columns on top, 3 columns on bottom */}
             <Grid container spacing={4} sx={{ mb: 6 }}>
-              <Grid item xs={12} md={4}>
+              {/* First Row - 2 cards at 50% width each */}
+              <Grid item xs={12} md={6}>
                 <InfoCard>
                   <IconWrapper>
-                    <DirectionsBusIcon />
+                    <DirectionsBoatIcon />
                   </IconWrapper>
                   <Typography
                     variant="h6"
@@ -116,7 +131,7 @@ export default function VanTransferPage() {
                       mb: 1.5,
                     }}
                   >
-                    Route
+                    Feature Title 1
                   </Typography>
                   <Typography
                     variant="body2"
@@ -126,25 +141,84 @@ export default function VanTransferPage() {
                       lineHeight: 1.7,
                     }}
                   >
-                    Seamless transit between Puerto Princesa City and El Nido (vice versa)
+                    Describe a key feature of your service with <strong>emphasis</strong> on important details
+                  </Typography>
+                </InfoCard>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <InfoCard>
+                  <IconWrapper>
+                    <PaymentsIcon />
+                  </IconWrapper>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: '1.125rem',
+                      color: 'text.primary',
+                      mb: 1.5,
+                    }}
+                  >
+                    Pricing
                   </Typography>
                   <Typography
                     variant="h5"
                     sx={{
                       fontWeight: 700,
                       color: 'primary.main',
-                      mt: 2,
+                      mb: 1,
                     }}
                   >
-                    650 PHP
+                    $99
                   </Typography>
                   <Typography
                     variant="caption"
                     sx={{
                       color: 'text.secondary',
+                      mb: 1,
                     }}
                   >
-                    per person
+                    per session
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: 'text.secondary',
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    (prices may vary based on customization)
+                  </Typography>
+                </InfoCard>
+              </Grid>
+
+              {/* Second Row - 3 cards at 33% width each */}
+              <Grid item xs={12} md={4}>
+                <InfoCard>
+                  <IconWrapper>
+                    <ScheduleIcon />
+                  </IconWrapper>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      fontSize: '1.125rem',
+                      color: 'text.primary',
+                      mb: 1.5,
+                    }}
+                  >
+                    Feature Title 2
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: 'text.secondary',
+                      fontSize: '1.0625rem',
+                      lineHeight: 1.7,
+                    }}
+                  >
+                    Add schedule, timing, or availability details with <strong>highlights</strong>
                   </Typography>
                 </InfoCard>
               </Grid>
@@ -163,7 +237,7 @@ export default function VanTransferPage() {
                       mb: 1.5,
                     }}
                   >
-                    Availability
+                    Feature Title 3
                   </Typography>
                   <Typography
                     variant="body2"
@@ -173,18 +247,7 @@ export default function VanTransferPage() {
                       lineHeight: 1.7,
                     }}
                   >
-                    From <strong>4 AM to 7 PM</strong> for pickup and dropoff
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: 'text.secondary',
-                      fontSize: '1.0625rem',
-                      lineHeight: 1.7,
-                      mt: 1,
-                    }}
-                  >
-                    Airport pickup available
+                    Include another specification or detail about your service
                   </Typography>
                 </InfoCard>
               </Grid>
@@ -203,7 +266,7 @@ export default function VanTransferPage() {
                       mb: 1.5,
                     }}
                   >
-                    Travel Time
+                    Feature Title 4
                   </Typography>
                   <Typography
                     variant="body2"
@@ -213,7 +276,7 @@ export default function VanTransferPage() {
                       lineHeight: 1.7,
                     }}
                   >
-                    Anticipate a travel duration of <strong>5 to 6 hours</strong>
+                    Highlight additional important information or <strong>key benefits</strong> of your service
                   </Typography>
                 </InfoCard>
               </Grid>
@@ -230,7 +293,7 @@ export default function VanTransferPage() {
                   mb: 3,
                 }}
               >
-                Ready for the trip?
+                Ready to get started?
               </Typography>
               <Typography
                 variant="body1"
@@ -242,7 +305,7 @@ export default function VanTransferPage() {
                   margin: '0 auto',
                 }}
               >
-                If you are, send us a message or connect with us through our social accounts below.
+                Contact us today to book your appointment or learn more about this service.
               </Typography>
             </Box>
           </Container>
@@ -262,7 +325,8 @@ export default function VanTransferPage() {
             >
               SEE MORE OF OUR SERVICES
             </Typography>
-            <ServicesSection config={servicesConfig} hiddenItem={3} />
+            {/* hiddenItem prop: Set to the index of this service to hide it from the list */}
+            <ServicesSection config={servicesConfig} hiddenItem={0} />
           </Container>
         </Box>
 

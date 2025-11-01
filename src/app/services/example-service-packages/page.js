@@ -1,3 +1,15 @@
+/**
+ * Example Service Detail Page - Multi-Package Template
+ *
+ * INSTRUCTIONS:
+ * - This template is ideal for services with multiple packages, tiers, or options
+ * - Great for detailed service breakdowns with different pricing levels
+ * - Copy this folder and rename from 'example-service-packages' to your service name
+ * - Replace placeholder content with your actual service information
+ * - Add or remove sections, subsections as needed
+ * - Use SectionTitle for main headings, SubSectionTitle for sub-headings, and BodyText for content
+ */
+
 'use client';
 
 import Box from '@mui/material/Box';
@@ -56,7 +68,7 @@ const BodyText = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(2.5),
 }));
 
-export default function IslandToursPage() {
+export default function ServiceDetailPage() {
   return (
     <main>
       <PageContainer>
@@ -73,7 +85,7 @@ export default function IslandToursPage() {
                 marginBottom: 2,
               }}
             >
-              ISLAND TOURS
+              YOUR SERVICE NAME
             </Typography>
             <Typography
               variant="h5"
@@ -85,7 +97,7 @@ export default function IslandToursPage() {
                 margin: '0 auto',
               }}
             >
-              Discover the wonders of El Nido's tropical paradise
+              A captivating subtitle that draws in your audience
             </Typography>
           </Container>
         </PageHeader>
@@ -94,67 +106,68 @@ export default function IslandToursPage() {
         <ContentSection>
           <Container maxWidth="md">
             <SectionTitle variant="h2">
-              Are you craving an escape into nature's embrace?
+              What makes this service special?
             </SectionTitle>
             <BodyText>
-              Welcome to Tribe Banua's El Nido Island Tours, your gateway to the wonders of this tropical paradise! Our meticulously crafted tours offer an immersive experience, blending adventure with relaxation as you explore the stunning beauty of El Nido's islands. Picture yourself gliding through crystal-clear waters, surrounded by towering limestone cliffs and vibrant marine life. With our expert guides, you'll discover hidden lagoons, pristine beaches, and awe-inspiring snorkeling spots. Let Tribe Banua be your companion as you create cherished memories in one of the world's most enchanting destinations. Join us and unlock the treasures of El Nido's islands today!
+              Write an engaging introduction to your service here. This is your opportunity to connect with potential clients and explain the unique value you provide. Describe the experience, benefits, and what sets your service apart from competitors. Make it personal and compelling.
             </BodyText>
 
             <Divider sx={{ my: 4, borderColor: 'divider' }} />
 
             <SectionTitle variant="h2">
-              The kind of tour for you.
+              Service Options & Packages
             </SectionTitle>
             <BodyText>
-              Each tour is designed to cater to all preferences, whether you seek adrenaline-pumping activities like cliff jumping or serene moments to bask in the sun's warm embrace. There are four main island tours in El Nido and we are glad to offer them to you. They are called Tours A, B, C & D. What's the difference between all of them? Let's find out.
+              If you offer multiple tiers, packages, or variations of your service, introduce them here. Explain how clients can choose the option that best fits their needs.
             </BodyText>
 
             <SubSectionTitle variant="h3">
-              Tour A
+              Package Option 1
             </SubSectionTitle>
             <BodyText>
-              Embark on the extraordinary journey of Tour A, an unparalleled island-hopping escapade in the heart of El Nido's aquatic paradise. Discover hidden lagoons, secluded beaches, and vibrant snorkeling spots, where you can immerse yourself in the mesmerizing beauty of coral reefs and the diverse marine life they harbor. Dive into crystal-clear waters and witness the enchanting spectacle of countless fish species. For the remarkable price of only <strong>P1200</strong>, begin your adventure today!
+              Describe your first service package or option in detail. Include what's included, the duration, pricing, and any special features. Use <strong>bold text</strong> to emphasize key points like pricing or unique features.
             </BodyText>
             <BodyText>
-              Embark on an unforgettable journey through Tour A's captivating destinations, including <strong>Big Lagoon, Secret Lagoon, Shimizu Island, and Seven Commando Beach</strong>.
+              Add additional details about specific features, deliverables, or what clients can expect with <strong>this package option</strong>.
             </BodyText>
 
             <SubSectionTitle variant="h3">
-              Tour B
+              Package Option 2
             </SubSectionTitle>
             <BodyText>
-              Tour B promises an enthralling adventure with its array of attractions. From pristine white sand beaches to exhilarating snorkeling spots, and even a fascinating cave exploration, this tour offers something for everyone. Don't miss the chance to discover a remarkable sandbar nestled amidst the sea's embrace.
+              Describe your second service package or option. Explain how it differs from the first option and what makes it valuable.
             </BodyText>
             <BodyText>
-              All this excitement comes at an unbeatable price of only <strong>1300PHP</strong>.
+              Include pricing information like <strong>$199</strong> or other important specifications.
             </BodyText>
             <BodyText>
-              Throughout the excursion, adventurers will make memorable pit stops at <strong>Snake Isle (also known as Vigan Isle), Pinagbuyutan Isle, Entalula Shore, Cudugnon Grotto, and a unique snorkeling locale</strong>.
+              List what's included or any locations, features, or benefits with <strong>clear emphasis on key details</strong>.
             </BodyText>
 
             <SubSectionTitle variant="h3">
-              Tour C
+              Package Option 3
             </SubSectionTitle>
             <BodyText>
-              Tour C is probably the most popular of all El Nido Tours. It will take you on a journey to beautiful islands, beaches and snorkeling spots, and to an uncanny place: Matinloc Shrine.
+              Continue describing additional packages or service variations. Keep the format consistent for easy scanning.
             </BodyText>
             <BodyText>
-              If you were to pick only one tour in El Nido, this probably would be Tour C. Price is of only <strong>1400PHP</strong>.
+              Highlight the price point like <strong>$299</strong> and what makes this option attractive.
             </BodyText>
             <BodyText>
-              On the island journey of Tour C, explorers will uncover hidden treasures at destinations like <strong>Chopper Isle, Matinloc Sanctuary, Whispering Cove, Stardust Cove, and Veiled Bay</strong>.
+              Mention specific features, deliverables, or destinations with <strong>emphasis where appropriate</strong>.
             </BodyText>
 
             <SubSectionTitle variant="h3">
-              Tour D
+              Package Option 4
             </SubSectionTitle>
             <BodyText>
-              Embark on an adventure like no other with El Nido's island hopping Tour D, guiding you through some of Palawan's most stunning beaches. Take leisurely moments to unwind on pristine white sands, explore vibrant underwater realms while snorkeling, and marvel at the kaleidoscope of colorful marine life. Immerse yourself in the untamed beauty of nature's wonders. Tour D is priced at an unbeatable <strong>P1200</strong>.
+              Add as many package options as needed for your service. Each subsection should clearly explain what the package includes and its value proposition.
             </BodyText>
             <BodyText>
-              During the course of Tour D, we'll make captivating stops at <strong>Ipil Shore, Cadlao Lagoon, Paradise Shore, Pasandigan Shore, Natnat Shore, and Bukal Shore</strong>.
+              Include pricing such as <strong>$399</strong> and any unique selling points.
             </BodyText>
 
+            {/* Optional: Important Notice Box */}
             <Box sx={{
               mt: 4,
               p: 3,
@@ -164,17 +177,17 @@ export default function IslandToursPage() {
               borderColor: 'divider'
             }}>
               <BodyText sx={{ mb: 0, fontStyle: 'italic' }}>
-                <strong>Please note:</strong> Starting from June 2023, due to new municipal regulations, food preparation aboard boats or during the tour is no longer permitted. Therefore, guests are kindly asked to bring their own meals and drinking water. We appreciate your understanding and cooperation in ensuring a pleasant and compliant experience during your excursion.
+                <strong>Important Note:</strong> Use this styled box to highlight important information, terms and conditions, special notices, or disclaimers that clients should be aware of before booking your service.
               </BodyText>
             </Box>
 
             <Divider sx={{ my: 4, borderColor: 'divider' }} />
 
             <SectionTitle variant="h2" sx={{ textAlign: 'center' }}>
-              Ready to dive in?
+              Ready to get started?
             </SectionTitle>
             <BodyText sx={{ textAlign: 'center' }}>
-              If you are, send us a message or connect with us through our social accounts below.
+              Contact us today to discuss your needs and book this service. We look forward to working with you!
             </BodyText>
           </Container>
         </ContentSection>
@@ -193,7 +206,8 @@ export default function IslandToursPage() {
             >
               SEE MORE OF OUR SERVICES
             </Typography>
-            <ServicesSection config={servicesConfig} hiddenItem={1} />
+            {/* hiddenItem prop: Set to the index of this service to hide it from the list */}
+            <ServicesSection config={servicesConfig} hiddenItem={0} />
           </Container>
         </Box>
 

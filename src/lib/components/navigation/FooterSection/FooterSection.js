@@ -111,7 +111,7 @@ export default function FooterSection({ config }) {
                 color: 'text.primary',
               }}
             >
-              TRIBE BANUA
+              {config.brandName || 'YOUR COMPANY'}
             </Typography>
             <Typography
               variant="body2"
@@ -121,7 +121,7 @@ export default function FooterSection({ config }) {
                 mb: 3,
               }}
             >
-              Your gateway to unforgettable island expeditions in Palawan's paradise.
+              {config.brandDescription || 'Your company description goes here. Update this in the footer configuration.'}
             </Typography>
 
             {/* Social Links */}
@@ -148,30 +148,26 @@ export default function FooterSection({ config }) {
           </Grid>
 
           {/* Quick Links */}
-          <Grid item xs={12} sm={6} md={3}>
-            <SectionTitle variant="subtitle2">
-              Quick Links
-            </SectionTitle>
-            <Box>
-              {[
-                { text: 'About', href: '/about' },
-                { text: 'Expeditions', href: '/expeditions' },
-                { text: 'Island Tours', href: '/services/island-tours' },
-                { text: 'Ferry Service', href: '/services/ferry' },
-                { text: 'Contact', href: '/contact' },
-              ].map((link, index) => (
-                <FooterLink
-                  key={index}
-                  href={link.href}
-                >
-                  {link.text}
-                </FooterLink>
-              ))}
-            </Box>
-          </Grid>
+          {config.quickLinks && config.quickLinks.length > 0 && (
+            <Grid item xs={12} sm={6} md={3}>
+              <SectionTitle variant="subtitle2">
+                Quick Links
+              </SectionTitle>
+              <Box>
+                {config.quickLinks.map((link, index) => (
+                  <FooterLink
+                    key={index}
+                    href={link.href}
+                  >
+                    {link.text}
+                  </FooterLink>
+                ))}
+              </Box>
+            </Grid>
+          )}
 
           {/* Contact Section */}
-          <Grid item xs={12} sm={6} md={5}>
+          <Grid item xs={12} sm={6} md={config.quickLinks && config.quickLinks.length > 0 ? 5 : 8}>
             <SectionTitle variant="subtitle2">
               {config.title || 'Contact Us'}
             </SectionTitle>
@@ -200,18 +196,20 @@ export default function FooterSection({ config }) {
         {/* Footer Bottom */}
         <FooterBottom>
           <Copyright>
-            © {new Date().getFullYear()} Tribe Banua Expeditions. All rights reserved.
+            © {new Date().getFullYear()} {config.copyrightText || 'Your Company Name'}. All rights reserved.
           </Copyright>
-          <Typography
-            variant="caption"
-            sx={{
-              color: 'text.secondary',
-              mt: 0.5,
-              display: 'block',
-            }}
-          >
-            Palawan, Philippines
-          </Typography>
+          {config.location && (
+            <Typography
+              variant="caption"
+              sx={{
+                color: 'text.secondary',
+                mt: 0.5,
+                display: 'block',
+              }}
+            >
+              {config.location}
+            </Typography>
+          )}
         </FooterBottom>
       </ContentWrapper>
     </FooterContainer>

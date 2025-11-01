@@ -1,3 +1,15 @@
+/**
+ * Example Service Detail Page - Info Cards Template (3 Cards)
+ *
+ * INSTRUCTIONS:
+ * - This template demonstrates a service page with feature cards and icons
+ * - Great for services with key features or specifications (pricing, timing, etc.)
+ * - Copy this folder and rename from 'example-service-cards' to your service name (e.g., 'consulting', 'workshop')
+ * - Replace placeholder content with your actual service details
+ * - Customize icons by importing different icons from @mui/icons-material
+ * - Add or remove InfoCards based on your needs
+ */
+
 'use client';
 
 import Box from '@mui/material/Box';
@@ -6,10 +18,9 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import DirectionsBoatIcon from '@mui/icons-material/DirectionsBoat';
+import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import PaymentsIcon from '@mui/icons-material/Payments';
 import { FooterSection, ServicesSection } from '@/lib/components';
 import { footerConfig } from '../../../../content/sections/footer.config';
 import { servicesConfig } from '../../../../content/sections/services.config';
@@ -65,7 +76,7 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function FerryTransferPage() {
+export default function ServiceDetailPage() {
   return (
     <main>
       <PageContainer>
@@ -82,7 +93,7 @@ export default function FerryTransferPage() {
                 marginBottom: 2,
               }}
             >
-              FERRY TRANSFER
+              YOUR SERVICE NAME
             </Typography>
             <Typography
               variant="h5"
@@ -94,7 +105,7 @@ export default function FerryTransferPage() {
                 margin: '0 auto',
               }}
             >
-              Scenic journey between Coron and El Nido
+              A brief, engaging description of what you offer
             </Typography>
           </Container>
         </PageHeader>
@@ -102,11 +113,12 @@ export default function FerryTransferPage() {
         {/* Main Content */}
         <ContentSection>
           <Container maxWidth="lg">
+            {/* Feature Cards - Customize icons, titles, and content for your service */}
             <Grid container spacing={4} sx={{ mb: 6 }}>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={4}>
                 <InfoCard>
                   <IconWrapper>
-                    <DirectionsBoatIcon />
+                    <DirectionsBusIcon />
                   </IconWrapper>
                   <Typography
                     variant="h6"
@@ -117,7 +129,7 @@ export default function FerryTransferPage() {
                       mb: 1.5,
                     }}
                   >
-                    Route
+                    Feature Title 1
                   </Typography>
                   <Typography
                     variant="body2"
@@ -127,54 +139,26 @@ export default function FerryTransferPage() {
                       lineHeight: 1.7,
                     }}
                   >
-                    Offering seamless transit between <strong>Coron and El Nido</strong> (vice versa)
+                    Describe a key feature or specification of your service here
                   </Typography>
-                </InfoCard>
-              </Grid>
-
-              <Grid item xs={12} md={6}>
-                <InfoCard>
-                  <IconWrapper>
-                    <PaymentsIcon />
-                  </IconWrapper>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: '1.125rem',
-                      color: 'text.primary',
-                      mb: 1.5,
-                    }}
-                  >
-                    Price
-                  </Typography>
+                  {/* Optional: Add pricing or additional info */}
                   <Typography
                     variant="h5"
                     sx={{
                       fontWeight: 700,
                       color: 'primary.main',
-                      mb: 1,
+                      mt: 2,
                     }}
                   >
-                    3,224 PHP
+                    $99
                   </Typography>
                   <Typography
                     variant="caption"
                     sx={{
                       color: 'text.secondary',
-                      mb: 1,
                     }}
                   >
-                    per person
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      color: 'text.secondary',
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    (rates are subject to change upon booking)
+                    starting price
                   </Typography>
                 </InfoCard>
               </Grid>
@@ -193,7 +177,7 @@ export default function FerryTransferPage() {
                       mb: 1.5,
                     }}
                   >
-                    Departure from Coron
+                    Feature Title 2
                   </Typography>
                   <Typography
                     variant="body2"
@@ -203,26 +187,7 @@ export default function FerryTransferPage() {
                       lineHeight: 1.7,
                     }}
                   >
-                    Available daily from <strong>8 AM to 9 AM</strong>
-                  </Typography>
-                </InfoCard>
-              </Grid>
-
-              <Grid item xs={12} md={4}>
-                <InfoCard>
-                  <IconWrapper>
-                    <ScheduleIcon />
-                  </IconWrapper>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: '1.125rem',
-                      color: 'text.primary',
-                      mb: 1.5,
-                    }}
-                  >
-                    Departure from El Nido
+                    Add details about <strong>availability, timing</strong>, or any other key aspect
                   </Typography>
                   <Typography
                     variant="body2"
@@ -230,9 +195,10 @@ export default function FerryTransferPage() {
                       color: 'text.secondary',
                       fontSize: '1.0625rem',
                       lineHeight: 1.7,
+                      mt: 1,
                     }}
                   >
-                    Available daily from <strong>12 PM to 1 PM</strong>
+                    Include additional supporting information
                   </Typography>
                 </InfoCard>
               </Grid>
@@ -251,7 +217,7 @@ export default function FerryTransferPage() {
                       mb: 1.5,
                     }}
                   >
-                    Travel Time
+                    Feature Title 3
                   </Typography>
                   <Typography
                     variant="body2"
@@ -261,7 +227,7 @@ export default function FerryTransferPage() {
                       lineHeight: 1.7,
                     }}
                   >
-                    Expect a comfortable <strong>3-hour journey</strong> through scenic vistas and tranquil waters
+                    Highlight another important feature or specification with <strong>emphasis</strong> where needed
                   </Typography>
                 </InfoCard>
               </Grid>
@@ -278,7 +244,7 @@ export default function FerryTransferPage() {
                   mb: 3,
                 }}
               >
-                Ready for the journey?
+                Ready to get started?
               </Typography>
               <Typography
                 variant="body1"
@@ -290,7 +256,7 @@ export default function FerryTransferPage() {
                   margin: '0 auto',
                 }}
               >
-                If you are, send us a message or connect with us through our social accounts below.
+                Contact us today to learn more about this service or to book your appointment.
               </Typography>
             </Box>
           </Container>
@@ -310,7 +276,8 @@ export default function FerryTransferPage() {
             >
               SEE MORE OF OUR SERVICES
             </Typography>
-            <ServicesSection config={servicesConfig} hiddenItem={2} />
+            {/* hiddenItem prop: Set to the index of this service to hide it from the list */}
+            <ServicesSection config={servicesConfig} hiddenItem={0} />
           </Container>
         </Box>
 

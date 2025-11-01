@@ -19,8 +19,8 @@ import { footerConfig } from '../../../content/sections/footer.config';
 
 // Hero config for About page
 const aboutHeroConfig = {
-  title: "About Tribe Banua",
-  subtitle: "Discover the story behind Palawan's most trusted adventure company",
+  title: "About Your Company Name",
+  subtitle: "Discover the story behind Your Company Name",
   cta: {
     text: "Contact Us",
     href: "/contact"

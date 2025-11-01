@@ -14,7 +14,7 @@ import {
 } from '@/lib/components';
 
 // Import page configuration
-import { expeditionsPageConfig } from '../../../content/pages/expeditions.config';
+import { servicePageConfig } from '../../../content/pages/services.config';
 import { servicesConfig } from '../../../content/sections/services.config';
 import { footerConfig } from '../../../content/sections/footer.config';
 
@@ -35,7 +35,7 @@ const PageTitle = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function ExpeditionsPage() {
+export default function ProductPage() {
   return (
     <main>
       <PageContainer>
@@ -52,9 +52,9 @@ export default function ExpeditionsPage() {
                 marginBottom: 2,
               }}
             >
-              {expeditionsPageConfig.title}
+              {servicePageConfig.title}
             </Typography>
-            {expeditionsPageConfig.subtitle && (
+            {servicePageConfig.subtitle && (
               <Typography
                 variant="h5"
                 component="p"
@@ -65,7 +65,7 @@ export default function ExpeditionsPage() {
                   margin: '0 auto',
                 }}
               >
-                {expeditionsPageConfig.subtitle}
+                {servicePageConfig.subtitle}
               </Typography>
             )}
           </MuiContainer>
@@ -74,7 +74,7 @@ export default function ExpeditionsPage() {
         {/* Content Sections */}
         <Box sx={{ py: { xs: 6, md: 8 } }}>
           <MuiContainer maxWidth="lg">
-            {expeditionsPageConfig.content.sections.map((section, index) => (
+            {servicePageConfig.content.sections.map((section, index) => (
               <ContentSection key={index} config={section} />
             ))}
           </MuiContainer>
@@ -85,9 +85,9 @@ export default function ExpeditionsPage() {
           <ServicesSection
             config={{
               ...servicesConfig,
-              title: expeditionsPageConfig.cta.text,
+              title: servicePageConfig.cta.text,
             }}
-            hiddenItem={expeditionsPageConfig.cta.hiddenServiceIndex}
+            hiddenItem={servicePageConfig.cta.hiddenServiceIndex}
           />
         </Box>
 
