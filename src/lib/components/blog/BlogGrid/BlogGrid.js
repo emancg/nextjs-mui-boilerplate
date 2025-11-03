@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Pagination from '@mui/material/Pagination';
 import { styled } from '@mui/material/styles';
 import BlogCard from '../BlogCard';
 import Container from '../../utility/Container';
@@ -13,7 +14,7 @@ import Container from '../../utility/Container';
 /**
  * BlogGrid Component
  *
- * Grid display of blog posts with optional category filtering
+ * Grid display of blog posts with optional category filtering and pagination
  *
  * @param {Object} config - Blog grid configuration
  * @param {string} config.title - Section title
@@ -22,6 +23,8 @@ import Container from '../../utility/Container';
  * @param {boolean} config.showFilters - Show category filters
  * @param {Array} config.categories - Available categories for filtering
  * @param {string} config.variant - Card variant: 'card', 'list', 'minimal'
+ * @param {boolean} config.showPagination - Show pagination controls
+ * @param {number} config.postsPerPage - Number of posts per page (default: 9)
  * @param {Object} sx - Additional MUI sx styling
  */
 
@@ -37,8 +40,15 @@ const FilterTabs = styled(Tabs)(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.divider}`,
 }));
 
+const PaginationContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: theme.spacing(6),
+}));
+
 export default function BlogGrid({ config, sx = {} }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
 
   if (!config || !config.posts || config.posts.length === 0) {
     return null;
@@ -51,6 +61,8 @@ export default function BlogGrid({ config, sx = {} }) {
     showFilters = false,
     categories = [],
     variant = 'card',
+    showPagination = false,
+    postsPerPage = 9,
   } = config;
 
   // Extract categories from posts if not provided
@@ -63,8 +75,23 @@ export default function BlogGrid({ config, sx = {} }) {
     ? posts
     : posts.filter(post => post.category === selectedCategory);
 
+  // Pagination logic
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const paginatedPosts = showPagination
+    ? filteredPosts.slice(startIndex, endIndex)
+    : filteredPosts;
+
   const handleCategoryChange = (event, newValue) => {
     setSelectedCategory(newValue);
+    setCurrentPage(1); // Reset to first page on category change
+  };
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
+    // Scroll to top of blog grid
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Determine grid columns based on config
@@ -109,19 +136,49 @@ export default function BlogGrid({ config, sx = {} }) {
             </Typography>
           </Box>
         ) : variant === 'list' ? (
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            {filteredPosts.map((post, index) => (
-              <BlogCard key={post.slug || index} post={post} variant="list" />
-            ))}
-          </Box>
+          <>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              {paginatedPosts.map((post, index) => (
+                <BlogCard key={post.slug || index} post={post} variant="list" />
+              ))}
+            </Box>
+            {showPagination && totalPages > 1 && (
+              <PaginationContainer>
+                <Pagination
+                  count={totalPages}
+                  page={currentPage}
+                  onChange={handlePageChange}
+                  color="primary"
+                  size="large"
+                  showFirstButton
+                  showLastButton
+                />
+              </PaginationContainer>
+            )}
+          </>
         ) : (
-          <Grid container spacing={4}>
-            {filteredPosts.map((post, index) => (
-              <Grid item {...gridColumns} key={post.slug || index}>
-                <BlogCard post={post} variant={variant} />
-              </Grid>
-            ))}
-          </Grid>
+          <>
+            <Grid container spacing={4}>
+              {paginatedPosts.map((post, index) => (
+                <Grid item {...gridColumns} key={post.slug || index}>
+                  <BlogCard post={post} variant={variant} />
+                </Grid>
+              ))}
+            </Grid>
+            {showPagination && totalPages > 1 && (
+              <PaginationContainer>
+                <Pagination
+                  count={totalPages}
+                  page={currentPage}
+                  onChange={handlePageChange}
+                  color="primary"
+                  size="large"
+                  showFirstButton
+                  showLastButton
+                />
+              </PaginationContainer>
+            )}
+          </>
         )}
       </Container>
     </SectionContainer>

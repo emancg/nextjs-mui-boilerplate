@@ -28,7 +28,11 @@ import Container from '../../utility/Container';
  * @param {Function} config.onSubmit - Custom submit handler
  * @param {string} config.successMessage - Success message after submission
  * @param {boolean} config.showSubject - Show subject field (default: false)
- * @param {string} config.variant - Style variant: 'inline', 'section', 'card'
+ * @param {string} config.variant - Style variant: 'inline', 'section', 'card', 'with-map'
+ * @param {Object} config.mapConfig - Map configuration (for 'with-map' variant)
+ * @param {string} config.mapConfig.embedUrl - Google Maps embed URL
+ * @param {string} config.mapConfig.address - Address to display
+ * @param {string} config.mapConfig.position - Map position: 'left' or 'right' (default: 'right')
  * @param {Object} sx - Additional MUI sx styling
  */
 
@@ -54,6 +58,13 @@ const FormContainer = styled(Box)(({ theme, variant }) => {
         padding: theme.spacing(3),
       },
     },
+    'with-map': {
+      padding: theme.spacing(8, 0),
+      backgroundColor: theme.palette.grey[50],
+      [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(6, 0),
+      },
+    },
     inline: {
       padding: 0,
     },
@@ -65,6 +76,25 @@ const FormContainer = styled(Box)(({ theme, variant }) => {
   };
 });
 
+const MapContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  height: '600px',
+  borderRadius: theme.spacing(2),
+  overflow: 'hidden',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+
+  '& iframe': {
+    width: '100%',
+    height: '100%',
+    border: 'none',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    height: '400px',
+    marginTop: theme.spacing(4),
+  },
+}));
+
 export default function ContactForm({ config, sx = {} }) {
   const {
     title = 'Contact Us',
@@ -74,6 +104,7 @@ export default function ContactForm({ config, sx = {} }) {
     successMessage = 'Thank you for your message! We\'ll get back to you soon.',
     showSubject = false,
     variant = 'inline',
+    mapConfig,
   } = config || {};
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -231,6 +262,71 @@ export default function ContactForm({ config, sx = {} }) {
       </Grid>
     </Box>
   );
+
+  if (variant === 'with-map' && mapConfig) {
+    const mapPosition = mapConfig.position || 'right';
+
+    return (
+      <FormContainer variant={variant} sx={sx}>
+        <Container maxWidth="lg">
+          {title && (
+            <Typography variant="h3" component="h2" align="center" sx={{ fontWeight: 700, mb: 6 }}>
+              {title}
+            </Typography>
+          )}
+
+          <Grid container spacing={4}>
+            {/* Form */}
+            <Grid item xs={12} md={6} order={{ xs: 1, md: mapPosition === 'right' ? 1 : 2 }}>
+              <FormContent />
+            </Grid>
+
+            {/* Map */}
+            <Grid item xs={12} md={6} order={{ xs: 2, md: mapPosition === 'right' ? 2 : 1 }}>
+              <MapContainer>
+                {mapConfig.embedUrl ? (
+                  <iframe
+                    src={mapConfig.embedUrl}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Location Map"
+                  />
+                ) : (
+                  <Box
+                    sx={{
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: 'grey.200',
+                      color: 'text.secondary',
+                      p: 4,
+                      textAlign: 'center',
+                    }}
+                  >
+                    <Typography>
+                      Please provide a map embed URL in config.mapConfig.embedUrl
+                    </Typography>
+                  </Box>
+                )}
+              </MapContainer>
+
+              {mapConfig.address && (
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 2, textAlign: 'center' }}
+                >
+                  {mapConfig.address}
+                </Typography>
+              )}
+            </Grid>
+          </Grid>
+        </Container>
+      </FormContainer>
+    );
+  }
 
   if (variant === 'section') {
     return (

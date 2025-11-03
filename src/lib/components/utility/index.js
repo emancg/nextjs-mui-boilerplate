@@ -12,3 +12,4 @@ export { default as Avatar } from './Avatar';
 export { default as Icon } from './Icon';
 export { default as Divider } from './Divider';
 export { default as ThemeToggle } from './ThemeToggle';
+export { default as VariantSwitcher } from './VariantSwitcher/VariantSwitcher';

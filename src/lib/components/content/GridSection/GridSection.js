@@ -10,12 +10,26 @@ import * as MuiIcons from '@mui/icons-material';
 /**
  * Minimal Clean GridSection Component
  *
- * Display content items in a clean grid with icons
+ * Display content items in a clean grid with icons or images
+ *
+ * @param {Object} config - Configuration object
+ * @param {string} config.title - Section title
+ * @param {string} config.id - Section ID for anchors
+ * @param {Array} config.items - Array of grid items
+ * @param {string} config.items[].title - Item title
+ * @param {string} config.items[].subtitle - Item description
+ * @param {string} config.items[].icon - MUI icon name (icon variant)
+ * @param {string} config.items[].image - Image URL (image variant)
+ * @param {string} config.items[].iconColor - Icon color
+ * @param {Object} config.layout - Layout configuration
+ * @param {number} config.layout.columns.md - Columns on desktop (3 or 4)
+ * @param {string} config.variant - Display variant: 'icon', 'image', 'card'
+ * @param {string} config.backgroundColor - Background color
  */
 
-const SectionContainer = styled(Box)(({ theme }) => ({
+const SectionContainer = styled(Box)(({ theme, bgcolor }) => ({
   padding: theme.spacing(12, 2),
-  backgroundColor: '#FFFFFF',
+  backgroundColor: bgcolor || '#FFFFFF',
 
   [theme.breakpoints.down('md')]: {
     padding: theme.spacing(8, 2),
@@ -38,13 +52,23 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-const GridItem = styled(Box)(({ theme }) => ({
+const GridItem = styled(Box)(({ theme, variant }) => ({
   textAlign: 'center',
   padding: theme.spacing(4, 2),
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  ...(variant === 'card' && {
+    backgroundColor: 'white',
+    borderRadius: theme.spacing(2),
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      boxShadow: '0 8px 24px rgba(0,0,0,0.15)',
+      transform: 'translateY(-4px)',
+    },
+  }),
 }));
 
 const IconWrapper = styled(Box)(({ theme }) => ({
@@ -75,13 +99,31 @@ const ItemDescription = styled(Typography)(({ theme }) => ({
   fontSize: '0.9375rem',
 }));
 
+const ImageWrapper = styled(Box)(({ theme }) => ({
+  width: '100%',
+  maxWidth: '200px',
+  height: '150px',
+  borderRadius: theme.spacing(2),
+  overflow: 'hidden',
+  marginBottom: theme.spacing(3),
+  boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+
+  '& img': {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  },
+}));
+
 export default function GridSection({ config }) {
   if (!config || !config.items) {
     return null;
   }
 
+  const variant = config.variant || 'icon';
+
   return (
-    <SectionContainer id={config.id}>
+    <SectionContainer id={config.id} bgcolor={config.backgroundColor}>
       <Container maxWidth="lg">
         <SectionHeader>
           <SectionTitle variant="h2" component="h2">
@@ -110,10 +152,20 @@ export default function GridSection({ config }) {
                 md={config.layout?.columns?.md === 3 ? 3 : 4}
                 key={index}
               >
-                <GridItem>
-                  <IconWrapper>
-                    <IconComponent sx={{ color: getIconColor() }} />
-                  </IconWrapper>
+                <GridItem variant={variant}>
+                  {/* Image variant */}
+                  {variant === 'image' && item.image && (
+                    <ImageWrapper>
+                      <img src={item.image} alt={item.title} />
+                    </ImageWrapper>
+                  )}
+
+                  {/* Icon variant (default) */}
+                  {(variant === 'icon' || variant === 'card') && item.icon && (
+                    <IconWrapper>
+                      <IconComponent sx={{ color: getIconColor() }} />
+                    </IconWrapper>
+                  )}
 
                   <ItemTitle variant="h6" component="h3">
                     {item.title}

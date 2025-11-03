@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
+import Slide from '@mui/material/Slide';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import * as MuiIcons from '@mui/icons-material';
@@ -30,9 +32,51 @@ import * as MuiIcons from '@mui/icons-material';
  * @param {Object} themeColors - Theme color palette
  * @param {Object} themeColors.primary - Primary color object
  * @param {string} themeColors.primary.main - Primary color
+ * @param {Object} ctaButton - Call-to-action button configuration
+ * @param {string} ctaButton.text - Button text
+ * @param {string} ctaButton.href - Button link
+ * @param {string} ctaButton.variant - Button variant (contained, outlined)
+ * @param {boolean} hideOnScroll - Hide AppBar on scroll down
+ * @param {boolean} elevateOnScroll - Add elevation on scroll
  */
 
-export default function AppBar({ brand, menuItems = [], themeColors }) {
+function HideOnScroll({ children, hideOnScroll }) {
+  const trigger = useScrollTrigger();
+
+  if (!hideOnScroll) {
+    return children;
+  }
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+function ElevationScroll({ children, elevateOnScroll }) {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+  });
+
+  if (!elevateOnScroll) {
+    return children;
+  }
+
+  return React.cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  });
+}
+
+export default function AppBar({
+  brand,
+  menuItems = [],
+  themeColors,
+  ctaButton,
+  hideOnScroll = false,
+  elevateOnScroll = true
+}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   // Resolve logo icon
@@ -48,7 +92,7 @@ export default function AppBar({ brand, menuItems = [], themeColors }) {
     setAnchorElNav(null);
   };
 
-  return (
+  const appBar = (
     <MuiAppBar
       position="fixed"
       sx={{
@@ -117,6 +161,24 @@ export default function AppBar({ brand, menuItems = [], themeColors }) {
                 </Link>
               </MenuItem>
             ))}
+            {ctaButton && (
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link
+                  href={ctaButton.href}
+                  style={{ textDecoration: 'none', width: '100%' }}
+                >
+                  <Button
+                    variant={ctaButton.variant || 'contained'}
+                    fullWidth
+                    sx={{
+                      fontWeight: 600,
+                    }}
+                  >
+                    {ctaButton.text}
+                  </Button>
+                </Link>
+              </MenuItem>
+            )}
           </Menu>
         </Box>
 
@@ -154,7 +216,38 @@ export default function AppBar({ brand, menuItems = [], themeColors }) {
             </Link>
           ))}
         </Box>
+
+        {/* CTA Button - Desktop */}
+        {ctaButton && (
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <Button
+              variant={ctaButton.variant || 'contained'}
+              href={ctaButton.href}
+              sx={{
+                ml: 2,
+                backgroundColor: ctaButton.variant === 'outlined' ? 'transparent' : 'white',
+                color: ctaButton.variant === 'outlined' ? 'white' : themeColors?.primary?.main || '#1976d2',
+                borderColor: 'white',
+                '&:hover': {
+                  backgroundColor: ctaButton.variant === 'outlined' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.9)',
+                },
+                fontWeight: 600,
+                px: 3,
+              }}
+            >
+              {ctaButton.text}
+            </Button>
+          </Box>
+        )}
       </Toolbar>
     </MuiAppBar>
+  );
+
+  return (
+    <HideOnScroll hideOnScroll={hideOnScroll}>
+      <ElevationScroll elevateOnScroll={elevateOnScroll}>
+        {appBar}
+      </ElevationScroll>
+    </HideOnScroll>
   );
 }
