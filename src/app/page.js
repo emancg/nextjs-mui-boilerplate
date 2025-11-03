@@ -2,15 +2,18 @@
 
 import { styled } from '@mui/material/styles';
 import MuiContainer from '@mui/material/Container';
+import AnimatedBox from '@/lib/animations/AnimatedBox';
 
-// Import new components from lib
-import {
-  Container,
-  HeroSection,
-  ServicesSection,
-  GridSection,
-  FooterSection,
-} from '@/lib/components';
+// Import components from lib
+import HeroSection from '@/lib/components/hero/HeroSection';
+import ServicesSection from '@/lib/components/content/ServicesSection';
+import GridSection from '@/lib/components/content/GridSection';
+import StatsCounter from '@/lib/components/content/StatsCounter';
+import TestimonialsCarousel from '@/lib/components/social-proof/TestimonialsCarousel';
+import CallToActionSection from '@/lib/components/content/CallToActionSection';
+import LogoGrid from '@/lib/components/content/LogoGrid';
+import FooterSection from '@/lib/components/navigation/FooterSection';
+import Container from '@/lib/components/utility/Container';
 
 // Import page configuration
 import { homePageConfig } from '../../content/pages/home.config';
@@ -31,7 +34,11 @@ export default function Home() {
   const sectionComponents = {
     hero: HeroSection,
     services: ServicesSection,
-    whyChooseUs: GridSection,
+    features: GridSection,
+    stats: StatsCounter,
+    testimonials: TestimonialsCarousel,
+    cta: CallToActionSection,
+    logoGrid: LogoGrid,
     footer: FooterSection,
   };
 
@@ -47,18 +54,24 @@ export default function Home() {
           }
 
           return (
-            <Container
+            <AnimatedBox
               key={index}
-              id={section.id}
-              disableGutters
-              maxWidth={false}
-              sx={section.containerProps?.sx || {}}
+              variant={section.animation || 'fadeInUp'}
+              delay={0.1}
             >
-              <SectionComponent config={section.config} />
-            </Container>
+              <Container
+                id={section.id}
+                disableGutters
+                maxWidth={false}
+                sx={section.containerProps?.sx || {}}
+              >
+                <SectionComponent config={section.config} />
+              </Container>
+            </AnimatedBox>
           );
         })}
       </PageContainer>
     </main>
   );
 }
+

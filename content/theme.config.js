@@ -1,66 +1,62 @@
 /**
  * Theme Configuration
  *
- * Customize your brand colors, typography, and design tokens
- *
- * INSTRUCTIONS:
- * - Replace brand name and logo with your own
- * - Customize color palette to match your brand
- * - Adjust typography settings as needed
- * - Icon options: Any icon name from @mui/icons-material (e.g., "Home", "Business", "Star")
+ * Brand colors, typography, and design tokens for Luxe Studio
  */
 
 export const themeConfig = {
   // Brand identity
   brand: {
-    name: "Your Brand",
+    name: "Luxe Studio",
     logo: {
-      icon: "AutoAwesome", // MUI icon name from @mui/icons-material
-      text: "YOUR BRAND"
+      icon: "Diamond", // MUI icon name from @mui/icons-material
+      text: "LUXE STUDIO"
     }
   },
 
-  // Minimal Clean Color Palette
+  // Elegant Luxury Color Palette
   colors: {
-    // Primary: Clean ocean blue
+    // Primary: Rich Espresso Brown
     primary: {
-      main: '#2196F3',      // Clean blue
-      light: '#64B5F6',     // Light blue
-      dark: '#1976D2',      // Dark blue
+      main: '#1a1110',      // Rich Espresso Brown
+      light: '#3d2e2a',     // Light Brown
+      dark: '#0d0807',      // Dark Brown
       contrast: '#ffffff'
     },
 
-    // Secondary: Fresh accent
+    // Secondary: Luxurious Gold
     secondary: {
-      main: '#FF6B6B',      // Coral accent
-      light: '#FF8A80',     // Light coral
-      dark: '#E53935',      // Dark coral
-      contrast: '#ffffff'
+      main: '#d4af37',      // Luxurious Gold
+      light: '#e4c968',     // Light Gold
+      dark: '#b8941f',      // Dark Gold
+      contrast: '#000000'
     },
 
-    // Success: Clean green
+    // Success: Sophisticated Green
     success: {
-      main: '#4CAF50',      // Green
-      light: '#81C784',     // Light green
-      dark: '#388E3C',      // Dark green
+      main: '#2f855a',      // Green
+      light: '#48bb78',     // Light green
+      dark: '#276749',      // Dark green
     },
 
-    // Neutral: Clean grays
+    // Neutral: Warm Elegant Tones
     neutral: {
-      main: '#F5F5F5',      // Light gray
-      light: '#FAFAFA',     // Very light gray
-      dark: '#E0E0E0',      // Medium gray
+      main: '#fcfaf7',      // Sophisticated warm white
+      light: '#ffffff',     // Pure white
+      dark: '#e8e1d8',      // Warm divider
     }
   },
 
-  // Typography - Clean and minimal
+  // Typography - Elegant Serif
   typography: {
-    fontFamily: 'Inter',  // Clean, modern sans-serif
-    headingFamily: 'Inter',
-    fontWeights: ['300', '400', '500', '600', '700']
+    fontFamily: 'Playfair Display',  // Elegant serif for sophistication
+    headingFamily: 'Playfair Display',
+    bodyFamily: 'Lora',
+    buttonFamily: 'Montserrat',
+    fontWeights: ['400', '500', '600', '700']
   },
 
-  // Layout settings - More spacing
+  // Layout settings - Refined spacing
   layout: {
     maxWidth: 'lg',
     spacing: 8,
@@ -72,15 +68,15 @@ export const themeConfig = {
     }
   },
 
-  // Animation settings - Subtle
+  // Animation settings - Smooth and refined
   animations: {
     duration: {
-      fast: '150ms',
-      normal: '250ms',
-      slow: '400ms'
+      fast: '300ms',
+      normal: '500ms',
+      slow: '800ms'
     },
     easing: {
-      default: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      default: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
       smooth: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
       bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
     }

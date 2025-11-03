@@ -1,35 +1,62 @@
 /**
  * Site Configuration
  *
- * All site-wide settings, metadata, contact info, and social media links
- *
- * INSTRUCTIONS: Replace all placeholder values with your actual company/project information
+ * Global site settings, metadata, and branding for Luxe Studio
  */
 
 export const siteConfig = {
-  // Basic site information
-  name: "Your Company Name",
-  tagline: "Your Company Tagline",
-  description: "A brief description of your company or service offering",
+  // Site Information
+  name: 'Luxe Studio',
+  tagline: 'Where Elegance Meets Excellence',
+  description: 'Premium design and consulting services for discerning clients who value sophistication, quality, and timeless elegance.',
+  url: 'https://luxestudio.example.com',
 
-  // Contact information
+  // Contact Information
   contact: {
-    email: "contact@yourcompany.com",
-    phone: "+1 (555) 123-4567",
-    address: "Your City, Your Country"
+    email: 'hello@luxestudio.com',
+    phone: '+1 (555) 123-4567',
+    address: {
+      street: '123 Madison Avenue',
+      city: 'New York',
+      state: 'NY',
+      zip: '10016',
+      country: 'United States',
+      full: '123 Madison Avenue, New York, NY 10016',
+    },
   },
 
-  // Social media links
+  // Social Media
   social: {
-    facebook: "https://facebook.com/yourcompany",
-    instagram: "https://instagram.com/yourcompany",
-    twitter: "https://twitter.com/yourcompany"
+    twitter: 'https://twitter.com/luxestudio',
+    linkedin: 'https://linkedin.com/company/luxestudio',
+    instagram: 'https://instagram.com/luxestudio',
+    facebook: 'https://facebook.com/luxestudio',
+    pinterest: 'https://pinterest.com/luxestudio',
   },
 
-  // SEO metadata
+  // SEO
   seo: {
-    title: "Your Company - Your Main Service or Product",
-    description: "A compelling description of your company and what you offer. Keep it under 160 characters for best SEO results.",
-    keywords: ["keyword1", "keyword2", "keyword3", "your industry", "your service"]
-  }
+    title: 'Luxe Studio | Premium Design & Consulting Services',
+    description: 'Elevate your brand with sophisticated design and strategic consulting. Luxe Studio delivers excellence through timeless elegance.',
+    keywords: ['luxury design', 'premium consulting', 'elegant branding', 'sophisticated design', 'high-end services', 'luxury consulting'],
+    ogImage: '/images/og-image.jpg',
+  },
+
+  // Business Information
+  business: {
+    founded: '2020',
+    employees: '15-20',
+    industries: ['Design', 'Consulting', 'Branding', 'Strategy'],
+    certifications: ['ISO 9001', 'Design Excellence Award'],
+  },
+
+  // Features
+  features: {
+    newsletter: true,
+    blog: true,
+    portfolio: true,
+    testimonials: true,
+    team: true,
+    pricing: true,
+  },
 };

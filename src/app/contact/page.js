@@ -6,30 +6,34 @@ import Grid from '@mui/material/Grid';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import {
-  HeroSection,
-  ContactForm,
-  NewsletterSignup,
-  Container,
-} from '@/lib/components';
-import { footerConfig } from '../../../content/sections/footer.config';
+import AnimatedBox from '@/lib/animations/AnimatedBox';
+import HeroSection from '@/lib/components/hero/HeroSection';
+import ContactForm from '@/lib/components/forms/ContactForm';
+import NewsletterSignup from '@/lib/components/forms/NewsletterSignup';
+import Container from '@/lib/components/utility/Container';
+import FooterSection from '@/lib/components/navigation/FooterSection';
 
 const contactHeroConfig = {
   title: "Get In Touch",
-  subtitle: "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+  subtitle: "Have a project in mind? We'd love to hear from you. Let's create something extraordinary together.",
+  cta: [
+    { text: "Call Us", href: "tel:+15551234567", variant: "outlined" }
+  ],
+  height: "60vh",
+  alignment: "center"
 };
 
 const contactFormConfig = {
   title: "Send Us a Message",
   description: "Fill out the form below and our team will get back to you within 24 hours.",
   showSubject: true,
-  variant: "minimal",
+  variant: "default",
 };
 
 const newsletterConfig = {
-  title: "Stay Updated",
-  description: "Subscribe to our newsletter for the latest updates, special offers, and travel tips.",
-  variant: "minimal",
+  title: "Stay Informed",
+  description: "Subscribe to our newsletter for design insights, industry trends, and exclusive updates.",
+  variant: "inline",
 };
 
 const ContactInfoCard = ({ icon: Icon, title, content }) => (
@@ -69,55 +73,109 @@ const ContactInfoCard = ({ icon: Icon, title, content }) => (
 );
 
 export default function ContactPage() {
+  const footerConfig = {
+    companyName: "Luxe Studio",
+    description: "Premium design and consulting services for discerning clients.",
+    sections: [
+      {
+        title: "Company",
+        links: [
+          { label: "About Us", href: "/about" },
+          { label: "Our Team", href: "/team" },
+          { label: "Careers", href: "/careers" },
+          { label: "Contact", href: "/contact" }
+        ]
+      },
+      {
+        title: "Services",
+        links: [
+          { label: "Design Services", href: "/services" },
+          { label: "Consulting", href: "/services" },
+          { label: "Branding", href: "/services" },
+          { label: "Strategy", href: "/services" }
+        ]
+      },
+      {
+        title: "Resources",
+        links: [
+          { label: "Blog", href: "/blog" },
+          { label: "Portfolio", href: "/portfolio" },
+          { label: "Case Studies", href: "/portfolio" },
+          { label: "Pricing", href: "/pricing" }
+        ]
+      }
+    ],
+    social: {
+      twitter: "https://twitter.com/luxestudio",
+      linkedin: "https://linkedin.com/company/luxestudio",
+      instagram: "https://instagram.com/luxestudio",
+      facebook: "https://facebook.com/luxestudio"
+    },
+    bottomLinks: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" }
+    ]
+  };
+
   return (
     <main>
       {/* Hero Section */}
-      <Box sx={{ mt: 8 }}>
-        <HeroSection config={contactHeroConfig} />
-      </Box>
+      <AnimatedBox variant="fadeIn">
+        <Box sx={{ mt: 8 }}>
+          <HeroSection config={contactHeroConfig} />
+        </Box>
+      </AnimatedBox>
 
       {/* Contact Information Cards */}
-      <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: '#FFFFFF' }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-              <ContactInfoCard
-                icon={EmailIcon}
-                title="Email Us"
-                content={footerConfig.contact.email}
-              />
+      <AnimatedBox variant="fadeInUp" delay={0.2}>
+        <Box sx={{ py: { xs: 6, md: 8 }, backgroundColor: 'background.paper' }}>
+          <Container maxWidth="lg">
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={4}>
+                <ContactInfoCard
+                  icon={EmailIcon}
+                  title="Email Us"
+                  content="hello@luxestudio.com"
+                />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <ContactInfoCard
+                  icon={PhoneIcon}
+                  title="Call Us"
+                  content="+1 (555) 123-4567"
+                />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <ContactInfoCard
+                  icon={LocationOnIcon}
+                  title="Visit Us"
+                  content="123 Madison Avenue, New York, NY 10016"
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={4}>
-              <ContactInfoCard
-                icon={PhoneIcon}
-                title="Call Us"
-                content={footerConfig.contact.phone}
-              />
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <ContactInfoCard
-                icon={LocationOnIcon}
-                title="Visit Us"
-                content={footerConfig.contact.address}
-              />
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+          </Container>
+        </Box>
+      </AnimatedBox>
 
       {/* Contact Form Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: '#F5F5F5' }}>
-        <Container maxWidth="md">
-          <ContactForm config={contactFormConfig} />
-        </Container>
-      </Box>
+      <AnimatedBox variant="fadeInUp" delay={0.2}>
+        <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.default' }}>
+          <Container maxWidth="md">
+            <ContactForm config={contactFormConfig} />
+          </Container>
+        </Box>
+      </AnimatedBox>
 
       {/* Newsletter Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: '#FFFFFF' }}>
-        <Container maxWidth="sm">
-          <NewsletterSignup config={newsletterConfig} />
-        </Container>
-      </Box>
+      <AnimatedBox variant="fadeInUp" delay={0.2}>
+        <Box sx={{ py: { xs: 8, md: 12 }, backgroundColor: 'background.paper' }}>
+          <Container maxWidth="md">
+            <NewsletterSignup config={newsletterConfig} />
+          </Container>
+        </Box>
+      </AnimatedBox>
+
+      <FooterSection config={footerConfig} />
     </main>
   );
 }

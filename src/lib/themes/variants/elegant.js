@@ -13,47 +13,47 @@ export const elegantVariant = {
   palette: {
     mode: 'light',
     primary: {
-      main: '#2c1810', // Deep Brown
-      light: '#5a3929',
-      dark: '#1a0f09',
+      main: '#1a1110', // Rich Espresso Brown
+      light: '#3d2e2a',
+      dark: '#0d0807',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#c9a961', // Gold
-      light: '#d4ba7e',
-      dark: '#a68943',
+      main: '#d4af37', // Luxurious Gold
+      light: '#e4c968',
+      dark: '#b8941f',
       contrastText: '#000000',
     },
     error: {
-      main: '#8b0000',
-      light: '#a52a2a',
-      dark: '#5c0000',
+      main: '#9b2c2c',
+      light: '#c53030',
+      dark: '#742a2a',
     },
     warning: {
-      main: '#b8860b',
-      light: '#daa520',
-      dark: '#886608',
+      main: '#c05621',
+      light: '#dd6b20',
+      dark: '#9c4221',
     },
     info: {
-      main: '#4a5568',
-      light: '#718096',
-      dark: '#2d3748',
+      main: '#5a5a5a',
+      light: '#7a7a7a',
+      dark: '#3a3a3a',
     },
     success: {
       main: '#2f855a',
       light: '#48bb78',
-      dark: '#22543d',
+      dark: '#276749',
     },
     background: {
-      default: '#faf8f5', // Warm off-white
+      default: '#fcfaf7', // Sophisticated warm white
       paper: '#ffffff',
     },
     text: {
-      primary: '#2d2420',
-      secondary: '#5a534d',
-      disabled: '#a8a29e',
+      primary: '#1a1110',
+      secondary: '#5a4f4a',
+      disabled: '#b8b0a8',
     },
-    divider: '#e5dfd8',
+    divider: '#e8e1d8',
   },
 
   typography: {
@@ -119,12 +119,30 @@ export const elegantVariant = {
 
   shadows: [
     'none',
-    '0 2px 8px rgba(44, 24, 16, 0.08)',
-    '0 4px 12px rgba(44, 24, 16, 0.12)',
-    '0 8px 20px rgba(44, 24, 16, 0.15)',
-    '0 12px 28px rgba(44, 24, 16, 0.18)',
-    '0 16px 36px rgba(44, 24, 16, 0.20)',
-    '0 20px 44px rgba(44, 24, 16, 0.22)',
+    '0 2px 8px rgba(26, 17, 16, 0.08)',
+    '0 4px 12px rgba(26, 17, 16, 0.12)',
+    '0 8px 20px rgba(26, 17, 16, 0.15)',
+    '0 12px 28px rgba(26, 17, 16, 0.18)',
+    '0 16px 36px rgba(26, 17, 16, 0.20)',
+    '0 20px 44px rgba(26, 17, 16, 0.22)',
+    '0 24px 52px rgba(26, 17, 16, 0.24)',
+    '0 4px 14px rgba(26, 17, 16, 0.1)',
+    '0 6px 18px rgba(26, 17, 16, 0.12)',
+    '0 8px 22px rgba(26, 17, 16, 0.14)',
+    '0 10px 26px rgba(26, 17, 16, 0.16)',
+    '0 12px 30px rgba(26, 17, 16, 0.18)',
+    '0 14px 34px rgba(26, 17, 16, 0.2)',
+    '0 16px 38px rgba(26, 17, 16, 0.22)',
+    '0 18px 42px rgba(26, 17, 16, 0.24)',
+    '0 20px 46px rgba(26, 17, 16, 0.26)',
+    '0 22px 50px rgba(26, 17, 16, 0.28)',
+    '0 24px 54px rgba(26, 17, 16, 0.3)',
+    '0 26px 58px rgba(26, 17, 16, 0.32)',
+    '0 28px 62px rgba(26, 17, 16, 0.34)',
+    '0 30px 66px rgba(26, 17, 16, 0.36)',
+    '0 32px 70px rgba(26, 17, 16, 0.38)',
+    '0 34px 74px rgba(26, 17, 16, 0.4)',
+    '0 36px 78px rgba(26, 17, 16, 0.42)',
   ],
 
   custom: {
@@ -163,21 +181,21 @@ export const elegantVariant = {
           transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         },
         contained: {
-          background: 'linear-gradient(135deg, #2c1810 0%, #5a3929 100%)',
-          boxShadow: '0 4px 12px rgba(44, 24, 16, 0.25)',
+          background: 'linear-gradient(135deg, #1a1110 0%, #3d2e2a 100%)',
+          boxShadow: '0 4px 12px rgba(26, 17, 16, 0.25)',
           '&:hover': {
-            background: 'linear-gradient(135deg, #5a3929 0%, #2c1810 100%)',
-            boxShadow: '0 8px 24px rgba(44, 24, 16, 0.35)',
+            background: 'linear-gradient(135deg, #3d2e2a 0%, #1a1110 100%)',
+            boxShadow: '0 8px 24px rgba(26, 17, 16, 0.35)',
             transform: 'translateY(-2px)',
           },
         },
         outlined: {
           borderWidth: 2,
-          borderColor: '#c9a961',
-          color: '#2c1810',
+          borderColor: '#d4af37',
+          color: '#1a1110',
           '&:hover': {
             borderWidth: 2,
-            backgroundColor: 'rgba(201, 169, 97, 0.08)',
+            backgroundColor: 'rgba(212, 175, 55, 0.08)',
             transform: 'translateY(-2px)',
           },
         },
@@ -187,14 +205,14 @@ export const elegantVariant = {
       styleOverrides: {
         root: {
           borderRadius: 12,
-          border: '1px solid #e5dfd8',
-          boxShadow: '0 8px 20px rgba(44, 24, 16, 0.12)',
+          border: '1px solid #e8e1d8',
+          boxShadow: '0 8px 20px rgba(26, 17, 16, 0.12)',
           transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-          backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #faf8f5 100%)',
+          backgroundImage: 'linear-gradient(180deg, #ffffff 0%, #fcfaf7 100%)',
           '&:hover': {
-            boxShadow: '0 16px 40px rgba(44, 24, 16, 0.18)',
+            boxShadow: '0 16px 40px rgba(26, 17, 16, 0.18)',
             transform: 'translateY(-4px)',
-            borderColor: '#c9a961',
+            borderColor: '#d4af37',
           },
         },
       },
@@ -205,10 +223,10 @@ export const elegantVariant = {
           backgroundImage: 'none',
         },
         elevation1: {
-          boxShadow: '0 2px 8px rgba(44, 24, 16, 0.08)',
+          boxShadow: '0 2px 8px rgba(26, 17, 16, 0.08)',
         },
         elevation2: {
-          boxShadow: '0 4px 12px rgba(44, 24, 16, 0.12)',
+          boxShadow: '0 4px 12px rgba(26, 17, 16, 0.12)',
         },
       },
     },
@@ -216,9 +234,9 @@ export const elegantVariant = {
       styleOverrides: {
         root: {
           backgroundColor: '#ffffff',
-          color: '#2c1810',
-          boxShadow: '0 2px 12px rgba(44, 24, 16, 0.08)',
-          borderBottom: '1px solid #e5dfd8',
+          color: '#1a1110',
+          boxShadow: '0 2px 12px rgba(26, 17, 16, 0.08)',
+          borderBottom: '1px solid #e8e1d8',
         },
       },
     },
@@ -229,18 +247,18 @@ export const elegantVariant = {
             borderRadius: 8,
             transition: 'all 0.3s ease',
             '& fieldset': {
-              borderColor: '#e5dfd8',
+              borderColor: '#e8e1d8',
               borderWidth: 1,
             },
             '&:hover fieldset': {
-              borderColor: '#c9a961',
+              borderColor: '#d4af37',
             },
             '&.Mui-focused fieldset': {
-              borderColor: '#c9a961',
+              borderColor: '#d4af37',
               borderWidth: 2,
             },
             '&.Mui-focused': {
-              boxShadow: '0 4px 12px rgba(201, 169, 97, 0.15)',
+              boxShadow: '0 4px 12px rgba(212, 175, 55, 0.15)',
             },
           },
         },
@@ -253,16 +271,16 @@ export const elegantVariant = {
           fontWeight: 600,
           fontSize: '0.8125rem',
           letterSpacing: '0.05em',
-          border: '1px solid #c9a961',
-          backgroundColor: 'rgba(201, 169, 97, 0.08)',
-          color: '#2c1810',
+          border: '1px solid #d4af37',
+          backgroundColor: 'rgba(212, 175, 55, 0.08)',
+          color: '#1a1110',
         },
       },
     },
     MuiDivider: {
       styleOverrides: {
         root: {
-          borderColor: '#e5dfd8',
+          borderColor: '#e8e1d8',
         },
       },
     },

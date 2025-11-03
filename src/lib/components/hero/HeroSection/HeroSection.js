@@ -96,7 +96,7 @@ export default function HeroSection({ config }) {
           </Subtitle>
         )}
 
-        {config.cta && (
+        {/* {config.cta && (
           <Link href={config.cta.href} style={{ textDecoration: 'none' }}>
             <CTAButton
               variant="contained"
@@ -107,7 +107,7 @@ export default function HeroSection({ config }) {
               {config.cta.text}
             </CTAButton>
           </Link>
-        )}
+        )} */}
       </ContentWrapper>
     </HeroContainer>
   );
