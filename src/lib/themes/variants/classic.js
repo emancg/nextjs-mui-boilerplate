@@ -57,7 +57,7 @@ export const classicVariant = {
   },
 
   typography: {
-    fontFamily: '"Merriweather", "Georgia", "Times New Roman", serif',
+    fontFamily: 'var(--font-merriweather), "Georgia", "Times New Roman", serif',
     h1: {
       fontWeight: 700,
       fontSize: '3rem',

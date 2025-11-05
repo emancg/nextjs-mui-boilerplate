@@ -19,6 +19,7 @@ import * as MuiIcons from '@mui/icons-material';
  * AppBar Component
  *
  * Responsive navigation bar with logo and menu
+ * Uses theme colors from the active variant via MUI ThemeProvider
  *
  * @param {Object} brand - Brand configuration
  * @param {string} brand.name - Brand name
@@ -29,9 +30,6 @@ import * as MuiIcons from '@mui/icons-material';
  * @param {string} menuItems[].label - Menu item label
  * @param {string} menuItems[].href - Menu item link
  * @param {string} menuItems[].type - Menu item type (page, section)
- * @param {Object} themeColors - Theme color palette
- * @param {Object} themeColors.primary - Primary color object
- * @param {string} themeColors.primary.main - Primary color
  * @param {Object} ctaButton - Call-to-action button configuration
  * @param {string} ctaButton.text - Button text
  * @param {string} ctaButton.href - Button link
@@ -72,7 +70,6 @@ function ElevationScroll({ children, elevateOnScroll }) {
 export default function AppBar({
   brand,
   menuItems = [],
-  themeColors,
   ctaButton,
   hideOnScroll = false,
   elevateOnScroll = true
@@ -93,13 +90,7 @@ export default function AppBar({
   };
 
   const appBar = (
-    <MuiAppBar
-      position="fixed"
-      sx={{
-        backgroundColor: themeColors?.primary?.main || '#1976d2',
-        color: 'white'
-      }}
-    >
+    <MuiAppBar position="fixed">
       <Toolbar>
         {/* Logo - Desktop */}
         <LogoIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -225,12 +216,6 @@ export default function AppBar({
               href={ctaButton.href}
               sx={{
                 ml: 2,
-                backgroundColor: ctaButton.variant === 'outlined' ? 'transparent' : 'white',
-                color: ctaButton.variant === 'outlined' ? 'white' : themeColors?.primary?.main || '#1976d2',
-                borderColor: 'white',
-                '&:hover': {
-                  backgroundColor: ctaButton.variant === 'outlined' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.9)',
-                },
                 fontWeight: 600,
                 px: 3,
               }}

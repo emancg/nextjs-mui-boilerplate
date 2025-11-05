@@ -21,9 +21,14 @@
   ],
   "scripts": {
     "dev": "next dev",
+    "dev:nodemon": "nodemon",
     "dev:3002": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
+    "clean": "rimraf .next",
+    "clean:full": "rimraf .next node_modules && npm install",
+    "kill:node": "taskkill /F /IM node.exe || echo No Node.js processes found",
+    "restart": "npm run kill:node && timeout /t 2 && npm run clean && npm run dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
@@ -48,6 +53,7 @@
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
+    "nodemon": "^3.1.10",
     "sharp": "^0.34.4"
   }
 }

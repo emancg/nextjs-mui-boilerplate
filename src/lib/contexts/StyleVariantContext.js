@@ -11,19 +11,59 @@ import { createContext, useState, useEffect, useMemo } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { createVariantTheme } from '../themes/createVariantTheme';
+
+// Import all variant configurations
 import { modernVariant } from '../themes/variants/modern';
 import { futuristicVariant } from '../themes/variants/futuristic';
 import { minimalVariant } from '../themes/variants/minimal';
 import { classicVariant } from '../themes/variants/classic';
 import { elegantVariant } from '../themes/variants/elegant';
+import { minimalismVariant } from '../themes/variants/minimalism';
+import { classicElegantVariant } from '../themes/variants/classicElegant';
+import { swissInternationalVariant } from '../themes/variants/swissInternational';
+import { modernismVariant } from '../themes/variants/modernism';
+import { brutalismVariant } from '../themes/variants/brutalism';
+import { neomorphismVariant } from '../themes/variants/neomorphism';
+import { glassmorphismVariant } from '../themes/variants/glassmorphism';
+import { materialDesignVariant } from '../themes/variants/materialDesign';
+import { memphisVariant } from '../themes/variants/memphis';
+import { darkModeVariant } from '../themes/variants/darkMode';
+import { retroVintageVariant } from '../themes/variants/retroVintage';
+import { cyberpunkVariant } from '../themes/variants/cyberpunk';
+import { ecoOrganicVariant } from '../themes/variants/ecoOrganic';
+import { y2kVariant } from '../themes/variants/y2k';
+import { grungeVariant } from '../themes/variants/grunge';
+import { filmCinematicVariant } from '../themes/variants/filmCinematic';
+import { healthWellnessVariant } from '../themes/variants/healthWellness';
+import { nonprofitNgoVariant } from '../themes/variants/nonprofitNgo';
 
 // Registry of all available style variants
 const variants = {
+  // Original variants
   modern: modernVariant,
   futuristic: futuristicVariant,
   minimal: minimalVariant,
   classic: classicVariant,
   elegant: elegantVariant,
+  // New variants from web_design_styles_improved.json
+  minimalism: minimalismVariant,
+  classicElegant: classicElegantVariant,
+  swissInternational: swissInternationalVariant,
+  modernism: modernismVariant,
+  brutalism: brutalismVariant,
+  neomorphism: neomorphismVariant,
+  glassmorphism: glassmorphismVariant,
+  materialDesign: materialDesignVariant,
+  memphis: memphisVariant,
+  darkMode: darkModeVariant,
+  retroVintage: retroVintageVariant,
+  cyberpunk: cyberpunkVariant,
+  ecoOrganic: ecoOrganicVariant,
+  y2k: y2kVariant,
+  grunge: grungeVariant,
+  filmCinematic: filmCinematicVariant,
+  healthWellness: healthWellnessVariant,
+  nonprofitNgo: nonprofitNgoVariant,
 };
 
 // Create Context

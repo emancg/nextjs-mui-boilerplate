@@ -34,10 +34,6 @@ import AppBar from '@/lib/components/navigation/AppBar';
     { label: "Services", href: "/services", type: "link" },
     { label: "Contact", href: "/contact", type: "link" }
   ]}
-  themeColors={{
-    background: "background.paper",
-    text: "text.primary"
-  }}
 />
 ```
 
@@ -47,10 +43,11 @@ import AppBar from '@/lib/components/navigation/AppBar';
 |------|------|----------|-------------|
 | brand | object | Yes | Brand configuration |
 | menuItems | array | Yes | Array of menu items |
-| themeColors | object | No | Color customization |
 | ctaButton | object | No | Call-to-action button configuration |
 | hideOnScroll | boolean | No | Hide AppBar when scrolling down (default: false) |
 | elevateOnScroll | boolean | No | Add elevation shadow on scroll (default: true) |
+
+**Note:** Colors are automatically inherited from the active theme variant via MUI ThemeProvider. Define AppBar colors in your theme variant's `components.MuiAppBar.styleOverrides` section.
 
 ### Brand Object
 
@@ -69,13 +66,6 @@ import AppBar from '@/lib/components/navigation/AppBar';
 | href | string | Yes | Link destination |
 | type | string | Yes | Item type (usually 'link') |
 
-### Theme Colors Object
-
-| Property | Type | Description |
-|----------|------|-------------|
-| background | string | AppBar background color |
-| text | string | Text color |
-
 ### CTA Button Object
 
 | Property | Type | Required | Description |
@@ -90,7 +80,7 @@ import AppBar from '@/lib/components/navigation/AppBar';
 - **Logo Support**: Icon-based logos with MUI icons
 - **Smooth Scrolling**: Automatic smooth scroll to anchors
 - **Mobile Menu**: Drawer-style mobile navigation
-- **Theme Integration**: Supports theme colors
+- **Theme Integration**: Automatically uses colors from active theme variant
 - **Dynamic Icons**: Icon resolution from MUI icons
 - **CTA Button**: Optional call-to-action button (desktop + mobile)
 - **Scroll Behavior**: Hide on scroll down / show on scroll up
@@ -110,28 +100,27 @@ import AppBar from '@/lib/components/navigation/AppBar';
 - Stacked menu items
 - Full-width mobile menu
 
-### Example with Custom Theme
+### Customizing AppBar Colors
 
-```jsx
-<AppBar
-  brand={{
-    name: "TechCorp",
-    logo: {
-      icon: "computer",
-      text: true
-    }
-  }}
-  menuItems={[
-    { label: "Products", href: "#products", type: "link" },
-    { label: "Solutions", href: "#solutions", type: "link" },
-    { label: "Pricing", href: "#pricing", type: "link" },
-    { label: "Contact", href: "#contact", type: "link" }
-  ]}
-  themeColors={{
-    background: "primary.main",
-    text: "white"
-  }}
-/>
+To customize AppBar colors, define them in your theme variant's component overrides:
+
+```javascript
+// In your theme variant file (e.g., src/lib/themes/variants/custom.js)
+export const customVariant = {
+  // ... other variant config
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#1976d2',
+          color: '#ffffff',
+          boxShadow: 'none',
+          borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+        },
+      },
+    },
+  },
+};
 ```
 
 ### Example with CTA Button and Scroll Behavior

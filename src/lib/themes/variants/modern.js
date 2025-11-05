@@ -57,7 +57,7 @@ export const modernVariant = {
   },
 
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica Neue", "Arial", sans-serif',
+    fontFamily: 'var(--font-inter), "Roboto", "Helvetica Neue", "Arial", sans-serif',
     h1: {
       fontWeight: 800,
       fontSize: '3.5rem',

@@ -57,7 +57,7 @@ export const futuristicVariant = {
   },
 
   typography: {
-    fontFamily: '"Orbitron", "Rajdhani", "Roboto", sans-serif',
+    fontFamily: 'var(--font-orbitron), var(--font-rajdhani), "Roboto", sans-serif',
     h1: {
       fontWeight: 900,
       fontSize: '4rem',

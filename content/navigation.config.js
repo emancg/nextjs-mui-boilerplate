@@ -1,7 +1,8 @@
 /**
  * Navigation Configuration
  *
- * Main menu, footer menu, and navigation structure for Luxe Studio
+ * Main menu, footer menu, and navigation structure
+ * Customize this file to add or remove navigation items
  */
 
 export const navigationConfig = {
@@ -52,22 +53,22 @@ export const navigationConfig = {
   // Footer menu sections
   footerMenu: {
     company: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Our Team', href: '/team' },
+      { label: 'About', href: '/about' },
+      { label: 'Team', href: '/team' },
       { label: 'Careers', href: '/careers' },
       { label: 'Contact', href: '/contact' }
     ],
     services: [
-      { label: 'Design Services', href: '/services' },
-      { label: 'Consulting', href: '/services' },
-      { label: 'Branding', href: '/services' },
-      { label: 'Strategy', href: '/services' }
+      { label: 'Services', href: '/services' },
+      { label: 'Features', href: '/features' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Solutions', href: '/solutions' }
     ],
     resources: [
       { label: 'Blog', href: '/blog' },
       { label: 'Portfolio', href: '/portfolio' },
-      { label: 'Case Studies', href: '/portfolio' },
-      { label: 'Pricing', href: '/pricing' }
+      { label: 'Documentation', href: '/docs' },
+      { label: 'Support', href: '/support' }
     ],
     legal: [
       { label: 'Privacy Policy', href: '/privacy' },

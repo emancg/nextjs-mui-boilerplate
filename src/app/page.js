@@ -38,7 +38,7 @@ export default function Home() {
     stats: StatsCounter,
     testimonials: TestimonialsCarousel,
     cta: CallToActionSection,
-    logoGrid: LogoGrid,
+    // logoGrid: LogoGrid,
     footer: FooterSection,
   };
 

@@ -1,62 +1,65 @@
 /**
  * Theme Configuration
  *
- * Brand colors, typography, and design tokens for Luxe Studio
+ * Brand colors, typography, and design tokens
+ * Customize this file to match your brand identity
  */
 
 export const themeConfig = {
   // Brand identity
   brand: {
-    name: "Luxe Studio",
+    name: "Your Company",
     logo: {
-      icon: "Diamond", // MUI icon name from @mui/icons-material
-      text: "LUXE STUDIO"
+      icon: "Star", // MUI icon name from @mui/icons-material
+      text: "YOUR COMPANY"
     }
   },
 
-  // Elegant Luxury Color Palette
+  // Brand Color Palette
+  // Customize these colors to match your brand
   colors: {
-    // Primary: Rich Espresso Brown
+    // Primary brand color
     primary: {
-      main: '#1a1110',      // Rich Espresso Brown
-      light: '#3d2e2a',     // Light Brown
-      dark: '#0d0807',      // Dark Brown
+      main: '#6366f1',      // Indigo
+      light: '#818cf8',     // Light Indigo
+      dark: '#4f46e5',      // Dark Indigo
       contrast: '#ffffff'
     },
 
-    // Secondary: Luxurious Gold
+    // Secondary accent color
     secondary: {
-      main: '#d4af37',      // Luxurious Gold
-      light: '#e4c968',     // Light Gold
-      dark: '#b8941f',      // Dark Gold
-      contrast: '#000000'
+      main: '#ec4899',      // Pink
+      light: '#f472b6',     // Light Pink
+      dark: '#db2777',      // Dark Pink
+      contrast: '#ffffff'
     },
 
-    // Success: Sophisticated Green
+    // Success state color
     success: {
-      main: '#2f855a',      // Green
-      light: '#48bb78',     // Light green
-      dark: '#276749',      // Dark green
+      main: '#10b981',      // Green
+      light: '#34d399',     // Light green
+      dark: '#059669',      // Dark green
     },
 
-    // Neutral: Warm Elegant Tones
+    // Neutral background colors
     neutral: {
-      main: '#fcfaf7',      // Sophisticated warm white
+      main: '#f9fafb',      // Light gray
       light: '#ffffff',     // Pure white
-      dark: '#e8e1d8',      // Warm divider
+      dark: '#e5e7eb',      // Gray divider
     }
   },
 
-  // Typography - Elegant Serif
+  // Typography settings
+  // These will be overridden by the active variant
   typography: {
-    fontFamily: 'Playfair Display',  // Elegant serif for sophistication
-    headingFamily: 'Playfair Display',
-    bodyFamily: 'Lora',
-    buttonFamily: 'Montserrat',
-    fontWeights: ['400', '500', '600', '700']
+    fontFamily: 'Inter',
+    headingFamily: 'Inter',
+    bodyFamily: 'Inter',
+    buttonFamily: 'Inter',
+    fontWeights: ['400', '500', '600', '700', '800']
   },
 
-  // Layout settings - Refined spacing
+  // Layout settings
   layout: {
     maxWidth: 'lg',
     spacing: 8,
@@ -68,15 +71,15 @@ export const themeConfig = {
     }
   },
 
-  // Animation settings - Smooth and refined
+  // Animation settings
   animations: {
     duration: {
-      fast: '300ms',
-      normal: '500ms',
-      slow: '800ms'
+      fast: '200ms',
+      normal: '400ms',
+      slow: '600ms'
     },
     easing: {
-      default: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      default: 'cubic-bezier(0.4, 0, 0.2, 1)',
       smooth: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
       bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
     }
