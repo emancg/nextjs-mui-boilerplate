@@ -18,7 +18,8 @@ import Icon from '../../utility/Icon/Icon';
  * @param {Object} config - Stats configuration
  * @param {string} config.title - Section title (optional)
  * @param {Array} config.stats - Array of stat objects
- * @param {number} config.stats[].number - The number to count to
+ * @param {number} config.stats[].value - The number to count to (or use 'number')
+ * @param {number} config.stats[].number - Alternative to 'value' (backwards compatible)
  * @param {string} config.stats[].label - Description label
  * @param {string} config.stats[].suffix - Suffix to add (e.g., '+', '%', 'K')
  * @param {string} config.stats[].prefix - Prefix to add (e.g., '$')
@@ -66,7 +67,14 @@ const StatLabel = styled(Typography)(({ theme }) => ({
 }));
 
 function StatItem({ stat, isVisible, animationDuration }) {
-  const count = useCountUp(stat.number, animationDuration, isVisible);
+  // Support both 'number' and 'value' properties for backwards compatibility
+  const targetNumber = stat.number ?? stat.value ?? 0;
+  const count = useCountUp(targetNumber, animationDuration, isVisible);
+
+  // Ensure count is a valid number for toLocaleString (SSR-safe)
+  const displayValue = isVisible && typeof count === 'number'
+    ? count.toLocaleString()
+    : '0';
 
   return (
     <StatBox>
@@ -78,7 +86,7 @@ function StatItem({ stat, isVisible, animationDuration }) {
 
       <StatNumber variant="h2" component="div">
         {stat.prefix || ''}
-        {isVisible ? count.toLocaleString() : '0'}
+        {displayValue}
         {stat.suffix || ''}
       </StatNumber>
 
