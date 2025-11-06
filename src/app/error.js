@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { ServerError } from '@/lib/components';
+import { ServerError } from '@/lib/components/feedback/ErrorBoundary/ErrorBoundary';
 
 /**
  * Error Page

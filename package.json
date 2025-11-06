@@ -29,6 +29,7 @@
     "clean:full": "rimraf .next node_modules && npm install",
     "kill:node": "taskkill /F /IM node.exe || echo No Node.js processes found",
     "restart": "npm run kill:node && timeout /t 2 && npm run clean && npm run dev",
+    "start:clean": "npm run clean && npm run build &&npm run start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",

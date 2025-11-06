@@ -11,11 +11,9 @@ import ListItemText from '@mui/material/ListItemText';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import Image from 'next/image';
 
-// Import components from lib
-import {
-  Container,
-  Section,
-} from '@/lib/components';
+// Import components directly (bypassing barrel exports for performance)
+import Container from '@/lib/components/utility/Container/Container';
+import Section from '@/lib/components/utility/Section/Section';
 
 // Import service data
 import { getServiceBySlug } from '../../../../content/services/servicesDetail.config';

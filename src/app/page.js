@@ -1,50 +1,80 @@
-'use client';
+// Server Component - No 'use client' needed!
+// Benefits: Smaller bundle, better SEO, server-side rendering
 
-import { styled } from '@mui/material/styles';
 import MuiContainer from '@mui/material/Container';
+import dynamic from 'next/dynamic';
 import AnimatedBox from '@/lib/animations/AnimatedBox';
 
-// Import components from lib
-import HeroSection from '@/lib/components/hero/HeroSection';
-import ServicesSection from '@/lib/components/content/ServicesSection';
-import GridSection from '@/lib/components/content/GridSection';
-import StatsCounter from '@/lib/components/content/StatsCounter';
-import TestimonialsCarousel from '@/lib/components/social-proof/TestimonialsCarousel';
-import CallToActionSection from '@/lib/components/content/CallToActionSection';
-import LogoGrid from '@/lib/components/content/LogoGrid';
-import FooterSection from '@/lib/components/navigation/FooterSection';
-import Container from '@/lib/components/utility/Container';
+// Static import for above-the-fold content (critical for FCP)
+import HeroSection from '@/lib/components/hero/HeroSection/HeroSection';
+import Container from '@/lib/components/utility/Container/Container';
+
+// Dynamic imports for below-the-fold sections (lazy load for performance)
+const ServicesSection = dynamic(() => import('@/lib/components/content/ServicesSection/ServicesSection'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '400px' }} />
+});
+
+const GridSection = dynamic(() => import('@/lib/components/content/GridSection/GridSection'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '400px' }} />
+});
+
+const StatsCounter = dynamic(() => import('@/lib/components/content/StatsCounter/StatsCounter'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '300px' }} />
+});
+
+const TestimonialsCarousel = dynamic(() => import('@/lib/components/social-proof/TestimonialsCarousel/TestimonialsCarousel'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '400px' }} />
+});
+
+const CallToActionSection = dynamic(() => import('@/lib/components/content/CallToActionSection/CallToActionSection'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '300px' }} />
+});
+
+const LogoGrid = dynamic(() => import('@/lib/components/content/LogoGrid/LogoGrid'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '200px' }} />
+});
+
+const FooterSection = dynamic(() => import('@/lib/components/navigation/FooterSection/FooterSection'), {
+  ssr: true,
+  loading: () => <div style={{ minHeight: '400px' }} />
+});
 
 // Import page configuration
 import { homePageConfig } from '../../content/pages/home.config';
 
-// Styled page container with background
-const PageContainer = styled(MuiContainer)(({ theme, config }) => ({
-  padding: 0,
-  width: '100%',
-  justifyContent: 'center',
-  backgroundImage: config?.background?.image
-    ? `url('${config.background.image}')`
-    : 'none',
-  backgroundSize: 'cover',
-}));
-
 export default function Home() {
-  // Map section types to components
+  // Map section types to components (now with dynamic imports for better performance)
   const sectionComponents = {
     hero: HeroSection,
     services: ServicesSection,
     features: GridSection,
     stats: StatsCounter,
-    testimonials: TestimonialsCarousel,
-    cta: CallToActionSection,
+    // testimonials: TestimonialsCarousel,
+    // cta: CallToActionSection,
     // logoGrid: LogoGrid,
     footer: FooterSection,
   };
 
   return (
     <main>
-      <PageContainer maxWidth="xl" config={homePageConfig}>
+      <MuiContainer
+        maxWidth="xl"
+        sx={{
+          padding: 0,
+          width: '100%',
+          justifyContent: 'center',
+          backgroundImage: homePageConfig.background?.image
+            ? `url('${homePageConfig.background.image}')`
+            : 'none',
+          backgroundSize: 'cover',
+        }}
+      >
         {homePageConfig.sections.map((section, index) => {
           const SectionComponent = sectionComponents[section.type];
 
@@ -70,7 +100,7 @@ export default function Home() {
             </AnimatedBox>
           );
         })}
-      </PageContainer>
+      </MuiContainer>
     </main>
   );
 }

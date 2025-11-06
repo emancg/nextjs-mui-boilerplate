@@ -5,7 +5,7 @@
  */
 
 export const homePageConfig = {
-  title: "Home - Luxe Studio",
+  title: "Home - Your Company",
   background: {
     image: null
   },
@@ -15,8 +15,8 @@ export const homePageConfig = {
       type: 'hero',
       animation: 'fadeIn',
       config: {
-        title: "Where Elegance Meets Excellence",
-        subtitle: "Premium design and consulting services for discerning clients who value sophistication, quality, and timeless elegance.",
+        title: "Your company's awesome title",
+        subtitle: "Your company's catchy subtitle that highlights key offerings",
         cta: [
           { text: "Explore Services", href: "/services", variant: "contained" },
           { text: "View Portfolio", href: "/portfolio", variant: "outlined" }
@@ -50,21 +50,21 @@ export const homePageConfig = {
       animation: 'fadeInUp',
       config: {
         title: "Our Services",
-        subtitle: "Comprehensive solutions tailored to elevate your brand",
+        subtitle: "Your slogan or brief description about services offered",
         services: [
           {
-            title: "Brand Strategy",
-            description: "Develop a sophisticated brand identity that resonates with your target audience and stands the test of time.",
+            title: "Sample Service 1",
+            description: "Detailed description of Sample Service 1 that highlights its benefits and features.",
             icon: "Psychology"
           },
           {
-            title: "Visual Design",
-            description: "Create stunning visual experiences that capture attention and communicate your brand's essence with elegance.",
+            title: "Sample Service 2",
+            description: "Comprehensive overview of Sample Service 2, explaining how it can add value to clients.",
             icon: "Palette"
           },
           {
-            title: "Consulting",
-            description: "Strategic guidance from industry experts to help you navigate challenges and achieve sustainable growth.",
+            title: "Sample Service 3",
+            description: "Insights into Sample Service 3, showcasing its unique selling points and advantages.",
             icon: "TrendingUp"
           }
         ]
@@ -78,7 +78,7 @@ export const homePageConfig = {
       type: 'features',
       animation: 'fadeInUp',
       config: {
-        title: "Why Choose Luxe Studio",
+        title: "Why Choose Your Company",
         subtitle: "Excellence in every detail",
         variant: "icon",
         columns: 3,
@@ -198,8 +198,8 @@ export const homePageConfig = {
       type: 'footer',
       animation: 'fadeIn',
       config: {
-        companyName: "Luxe Studio",
-        description: "Premium design and consulting services for discerning clients.",
+        companyName: "Your Company Name",
+        description: "Leading the industry with innovative solutions and unparalleled service.",
         sections: [
           {
             title: "Company",
@@ -213,10 +213,9 @@ export const homePageConfig = {
           {
             title: "Services",
             links: [
-              { label: "Design Services", href: "/services" },
-              { label: "Consulting", href: "/services" },
-              { label: "Branding", href: "/services" },
-              { label: "Strategy", href: "/services" }
+              { label: "Sample Service 1", href: "/services" },
+              { label: "Sample Service 2", href: "/services" },
+              { label: "Sample Service 3", href: "/services" },
             ]
           },
           {

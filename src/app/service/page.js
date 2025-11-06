@@ -5,13 +5,11 @@ import MuiContainer from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-// Import components from lib
-import {
-  Container,
-  ContentSection,
-  ServicesSection,
-  FooterSection,
-} from '@/lib/components';
+// Import components directly (bypassing barrel exports for performance)
+import Container from '@/lib/components/utility/Container/Container';
+import ContentSection from '@/lib/components/content/ContentSection/ContentSection';
+import ServicesSection from '@/lib/components/content/ServicesSection/ServicesSection';
+import FooterSection from '@/lib/components/navigation/FooterSection/FooterSection';
 
 // Import page configuration
 import { servicePageConfig } from '../../../content/pages/services.config';

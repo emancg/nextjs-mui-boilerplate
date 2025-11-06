@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { styled } from '@mui/material/styles';
-import PricingCard from '../PricingCard';
-import Container from '../../utility/Container';
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { styled } from "@mui/material/styles";
+import PricingCard from "../PricingCard";
+import Container from "../../utility/Container";
 
 /**
  * PricingTable Component
@@ -30,33 +30,33 @@ import Container from '../../utility/Container';
 const SectionContainer = styled(Box)(({ theme, bgcolor }) => ({
   padding: theme.spacing(8, 0),
   backgroundColor: bgcolor || theme.palette.grey[50],
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(6, 0),
   },
 }));
 
 const BillingToggle = styled(ToggleButtonGroup)(({ theme }) => ({
   marginBottom: theme.spacing(6),
-  backgroundColor: 'white',
+  backgroundColor: "white",
   borderRadius: theme.spacing(1),
-  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
 }));
 
 export default function PricingTable({ config, sx = {} }) {
-  const [billingPeriod, setBillingPeriod] = useState('monthly');
+  const [billingPeriod, setBillingPeriod] = useState("monthly");
 
   if (!config || !config.plans || config.plans.length === 0) {
     return null;
   }
 
   const {
-    title = 'Pricing Plans',
+    title = "Pricing Plans",
     subtitle,
     plans,
     showBillingToggle = false,
     yearlyPlans = [],
     columns = 3,
-    variant = 'card',
+    variant = "card",
     backgroundColor,
   } = config;
 
@@ -66,14 +66,22 @@ export default function PricingTable({ config, sx = {} }) {
     }
   };
 
-  const currentPlans = billingPeriod === 'yearly' && yearlyPlans.length > 0 ? yearlyPlans : plans;
+  const currentPlans =
+    billingPeriod === "yearly" && yearlyPlans.length > 0 ? yearlyPlans : plans;
 
   // Determine grid columns based on config
-  const gridColumns = {
-    xs: 12,
-    sm: columns >= 3 ? 6 : 12,
-    md: columns === 4 ? 3 : columns === 3 ? 4 : 6,
+  const getGridColumns = () => {
+    if (columns === 4) {
+      return { xs: 12, sm: 6, md: 3 };
+    } else if (columns === 3) {
+      return { xs: 12, sm: 6, md: 4 };
+    } else if (columns === 2) {
+      return { xs: 12, sm: 6 };
+    }
+    return { xs: 12 };
   };
+
+  const gridColumns = getGridColumns();
 
   return (
     <SectionContainer bgcolor={backgroundColor} sx={sx}>
@@ -83,10 +91,10 @@ export default function PricingTable({ config, sx = {} }) {
             variant="overline"
             align="center"
             sx={{
-              color: 'primary.main',
+              color: "primary.main",
               fontWeight: 600,
               letterSpacing: 1.5,
-              display: 'block',
+              display: "block",
               marginBottom: 1,
             }}
           >
@@ -104,7 +112,7 @@ export default function PricingTable({ config, sx = {} }) {
         </Typography>
 
         {showBillingToggle && yearlyPlans.length > 0 && (
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
             <BillingToggle
               value={billingPeriod}
               exclusive
@@ -116,13 +124,13 @@ export default function PricingTable({ config, sx = {} }) {
                 sx={{
                   px: 4,
                   py: 1.5,
-                  textTransform: 'none',
+                  textTransform: "none",
                   fontWeight: 600,
-                  '&.Mui-selected': {
-                    backgroundColor: 'primary.main',
-                    color: 'white',
-                    '&:hover': {
-                      backgroundColor: 'primary.dark',
+                  "&.Mui-selected": {
+                    backgroundColor: "primary.main",
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "primary.dark",
                     },
                   },
                 }}
@@ -134,13 +142,13 @@ export default function PricingTable({ config, sx = {} }) {
                 sx={{
                   px: 4,
                   py: 1.5,
-                  textTransform: 'none',
+                  textTransform: "none",
                   fontWeight: 600,
-                  '&.Mui-selected': {
-                    backgroundColor: 'primary.main',
-                    color: 'white',
-                    '&:hover': {
-                      backgroundColor: 'primary.dark',
+                  "&.Mui-selected": {
+                    backgroundColor: "primary.main",
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "primary.dark",
                     },
                   },
                 }}
@@ -152,10 +160,10 @@ export default function PricingTable({ config, sx = {} }) {
                     ml: 1,
                     px: 1,
                     py: 0.25,
-                    backgroundColor: 'success.main',
-                    color: 'white',
+                    backgroundColor: "success.main",
+                    color: "white",
                     borderRadius: 1,
-                    fontSize: '0.7rem',
+                    fontSize: "0.7rem",
                     fontWeight: 700,
                   }}
                 >

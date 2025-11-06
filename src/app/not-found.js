@@ -1,6 +1,6 @@
 'use client';
 
-import { NotFound } from '@/lib/components';
+import NotFound from '@/lib/components/feedback/NotFound/NotFound';
 
 /**
  * 404 Not Found Page

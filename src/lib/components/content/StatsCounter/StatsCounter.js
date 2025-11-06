@@ -5,9 +5,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import Container from '../../utility/Container';
-import { useIntersectionObserver, useCountUp } from '../../../hooks';
-import { Icon } from '../../utility';
+import Container from '../../utility/Container/Container';
+import { useIntersectionObserver } from '../../../hooks/useIntersectionObserver';
+import useCountUp from '../../../hooks/useCountUp';
+import Icon from '../../utility/Icon/Icon';
 
 /**
  * StatsCounter Component

@@ -21,6 +21,12 @@ export default function useCountUp(end, duration = 2000, start = false) {
       return;
     }
 
+    // Check if running in browser (SSR-safe)
+    if (typeof window === 'undefined' || typeof requestAnimationFrame === 'undefined') {
+      setCount(end);
+      return;
+    }
+
     startTimeRef.current = null;
 
     const animate = (timestamp) => {
@@ -47,7 +53,7 @@ export default function useCountUp(end, duration = 2000, start = false) {
     requestRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (requestRef.current) {
+      if (requestRef.current && typeof cancelAnimationFrame !== 'undefined') {
         cancelAnimationFrame(requestRef.current);
       }
     };
